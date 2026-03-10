@@ -1,0 +1,13 @@
+{
+    "IDE": 814953842,
+    "Location": "Grishino",
+    "Position": [
+        5856.0498046875,
+        278.853515625,
+        10102.720703125
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

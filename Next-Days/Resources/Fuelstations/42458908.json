@@ -1,0 +1,13 @@
+{
+    "IDE": 42458908,
+    "Location": "Zabolotye",
+    "Position": [
+        310.0877685546875,
+        296.0550842285156,
+        9393.697265625
+    ],
+    "Ammount": 6000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

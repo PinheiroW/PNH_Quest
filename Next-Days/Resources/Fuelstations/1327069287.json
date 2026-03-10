@@ -1,0 +1,13 @@
+{
+    "IDE": 1327069287,
+    "Location": "Electrozavodsk",
+    "Position": [
+        9498.21875,
+        6.572836875915527,
+        2012.4737548828126
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

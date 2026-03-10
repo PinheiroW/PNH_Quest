@@ -1,0 +1,13 @@
+{
+    "IDE": 605073089,
+    "Location": "Kozlovka",
+    "Position": [
+        4371.35546875,
+        232.53805541992188,
+        4657.90234375
+    ],
+    "Ammount": 15000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

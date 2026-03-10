@@ -1,0 +1,13 @@
+{
+    "IDE": 1537508205,
+    "Location": "Krasnostav",
+    "Position": [
+        11001.0869140625,
+        226.89854431152345,
+        12417.1298828125
+    ],
+    "Ammount": 15000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

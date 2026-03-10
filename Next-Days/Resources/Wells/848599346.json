@@ -1,0 +1,13 @@
+{
+    "IDE": 848599346,
+    "Location": "Stary Sobor",
+    "Position": [
+        6095.24658203125,
+        301.4255676269531,
+        7738.65185546875
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

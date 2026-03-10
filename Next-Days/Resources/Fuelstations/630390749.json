@@ -1,0 +1,13 @@
+{
+    "IDE": 630390749,
+    "Location": "NWA",
+    "Position": [
+        4532.748046875,
+        339.8586730957031,
+        9707.3564453125
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

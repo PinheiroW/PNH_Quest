@@ -1,0 +1,16 @@
+{
+    "EnableFuelstationManagement": 1,
+    "EnableWellManagement": 1,
+    "Wells": {
+        "DefaultAmmount": 15000.0,
+        "DefaultAmmountMax": 30000.0,
+        "DefaultRefreshPerRestart": 5000.0,
+        "DefaultChanceRefresh": 0.5
+    },
+    "Fuelstations": {
+        "DefaultAmmount": 2000.0,
+        "DefaultAmmountMax": 10000.0,
+        "DefaultRefreshPerRestart": 4000.0,
+        "DefaultChanceRefresh": 0.10000000149011612
+    }
+}

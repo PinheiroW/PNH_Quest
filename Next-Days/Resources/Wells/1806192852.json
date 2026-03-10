@@ -1,0 +1,13 @@
+{
+    "IDE": 1806192852,
+    "Location": "Khelm",
+    "Position": [
+        12920.091796875,
+        6.70627498626709,
+        10145.37109375
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

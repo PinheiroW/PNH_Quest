@@ -1,0 +1,13 @@
+{
+    "IDE": 1663594287,
+    "Location": "Berezino",
+    "Position": [
+        11902.6005859375,
+        54.425865173339847,
+        9149.66796875
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

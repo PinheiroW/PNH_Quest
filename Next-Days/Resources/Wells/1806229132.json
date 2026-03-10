@@ -1,0 +1,13 @@
+{
+    "IDE": 1806229132,
+    "Location": "Nizhnoye",
+    "Position": [
+        12956.283203125,
+        23.505788803100587,
+        8026.32568359375
+    ],
+    "Ammount": 15000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

@@ -1,0 +1,13 @@
+{
+    "IDE": 420287774,
+    "Location": "Topolniki",
+    "Position": [
+        3020.59521484375,
+        211.1428985595703,
+        12653.6640625
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

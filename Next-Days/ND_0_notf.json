@@ -1,0 +1,10 @@
+{
+    "EnableGameInfo": 1,
+    "EnableCharacterInfo": 1,
+    "EnableNotification": 1,
+    "NotificationAlign": 0,
+    "EnableDeathNotification": 0,
+    "ShownMessagesAtOnce": 3,
+    "MessageDisplayedMinimalFor": 5.0,
+    "MessageProlong": 0.5
+}

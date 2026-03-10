@@ -1,0 +1,13 @@
+{
+    "IDE": 512309055,
+    "Location": "Vybor",
+    "Position": [
+        3661.4111328125,
+        312.33935546875,
+        8987.1123046875
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

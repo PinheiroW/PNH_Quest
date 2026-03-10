@@ -1,0 +1,13 @@
+{
+    "IDE": 814672587,
+    "Location": "Bay Mutnaya",
+    "Position": [
+        5859.111328125,
+        10.106762886047364,
+        2196.29296875
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

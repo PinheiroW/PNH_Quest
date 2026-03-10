@@ -1,0 +1,46 @@
+[
+    {
+        "Type": 2,
+        "Message": "Some important  message showing just once on connect",
+        "Time": [
+            -3,
+            0,
+            0
+        ],
+        "Loop": 0,
+        "LoopTime": 5
+    },
+    {
+        "Type": 2,
+        "Message": "Some important  message showing every spawning",
+        "Time": [
+            -2,
+            0,
+            0
+        ],
+        "Loop": 0,
+        "LoopTime": 5
+    },
+    {
+        "Type": 0,
+        "Message": "Looping message per 1800 second",
+        "Time": [
+            -1,
+            0,
+            0
+        ],
+        "Loop": -1,
+        "LoopTime": 1800
+    },
+    {
+        "Type": 1,
+        "Message": "Important server message (restart) showing in exact time (hh:mm:ss)",
+        "Time": [
+            15,
+            0,
+            0
+        ],
+        "Loop": 0,
+        "LoopTime": 0
+    }
+]

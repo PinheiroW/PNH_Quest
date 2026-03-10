@@ -1,0 +1,13 @@
+{
+    "IDE": 1134061293,
+    "Location": "Prigorodki",
+    "Position": [
+        8140.4453125,
+        6.435553073883057,
+        3226.46484375
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

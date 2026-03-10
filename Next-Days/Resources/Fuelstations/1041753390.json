@@ -1,0 +1,13 @@
+{
+    "IDE": 1041753390,
+    "Location": "Severograd",
+    "Position": [
+        7494.08154296875,
+        122.30389404296875,
+        12662.263671875
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

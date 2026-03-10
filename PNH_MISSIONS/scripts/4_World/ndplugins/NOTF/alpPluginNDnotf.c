@@ -99,21 +99,21 @@ class alpPluginNDnotf extends alpPlugin
 	}
 	
 	
-	void FillTemplateServerMessages(ref array<ref alpServerMessageTemplate> messages)
-	{
-		alpServerMessageTemplate message = new alpServerMessageTemplate(ALPMSTYPE.SMPERSONAL,"Some important  message showing just once on connect",{-3,0,0},0,5);
-		messages.Insert(message);
-		
-		alpServerMessageTemplate message1 = new alpServerMessageTemplate(ALPMSTYPE.SMPERSONAL,"Some important  message showing every spawning",{-2,0,0},0,5);
-		messages.Insert(message1);
-		
-		alpServerMessageTemplate message2= new alpServerMessageTemplate(ALPMSTYPE.SMINFO,"Looping message per 1800 second",{-1,0,0},-1,1800);
-		messages.Insert(message2);
-		
-		alpServerMessageTemplate message3= new alpServerMessageTemplate(ALPMSTYPE.SMIMPORTANT,"Important server message (restart) showing in exact time (hh:mm:ss)",{15,0,0},0,0);
-		messages.Insert(message3);
-	
-	}
+	void FillTemplateServerMessages(array<ref alpServerMessageTemplate> messages)
+    {
+        alpServerMessageTemplate message = new alpServerMessageTemplate(ALPMSTYPE.SMPERSONAL,"Some important  message showing just once on connect",{-3,0,0},0,5);
+        messages.Insert(message);
+        
+        alpServerMessageTemplate message1 = new alpServerMessageTemplate(ALPMSTYPE.SMPERSONAL,"Some important  message showing every spawning",{-2,0,0},0,5);
+        messages.Insert(message1);
+        
+        alpServerMessageTemplate message2= new alpServerMessageTemplate(ALPMSTYPE.SMINFO,"Looping message per 1800 second",{-1,0,0},-1,1800);
+        messages.Insert(message2);
+        
+        alpServerMessageTemplate message3= new alpServerMessageTemplate(ALPMSTYPE.SMIMPORTANT,"Important server message (restart) showing in exact time (hh:mm:ss)",{15,0,0},0,0);
+        messages.Insert(message3);
+    
+    }
 	
 	
 	override void OnConnectManaged( PlayerBase player )

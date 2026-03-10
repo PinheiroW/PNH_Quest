@@ -133,33 +133,33 @@ class alpSync
 		DeserializeStats(mask_array);
 
 	}		
-	void DeserializeStats(ref array<int> mask_array )
-	{
-		int maskArrayIndex = 0;
-		int offset = 0;
-		int mask = 0;
-		
-		for(int i = 0; i < NUMBER_OF_ELEMENTS;i++)
-		{
-			if( GetElement(i) )
-			{
-				//Log("entity> " + ToString(GetElement(i)) );
-				if(offset + GetElement(i).GetNumberOfBits() > BIT_INT_SIZE)
-				{
-					maskArrayIndex++;
-					offset = 0;
-				}
-				mask = mask_array.Get(maskArrayIndex);
-				int value = BitToDec( mask, offset, GetElement(i).GetCompareMask() );
-				offset = offset + GetElement(i).GetNumberOfBits();
-				GetElement(i).SetValue( value );
-				//HOTFIX 
-				if ( i == alpRPelements.REPUTATION && alp_Player.GetIdentity() ) {
-					alp_Player.GetIdentity().SetPlayerLevel( value );	
-				}
-			}
-		}		
-	}
+	void DeserializeStats(array<int> mask_array )
+    {
+        int maskArrayIndex = 0;
+        int offset = 0;
+        int mask = 0;
+        
+        for(int i = 0; i < NUMBER_OF_ELEMENTS;i++)
+        {
+            if( GetElement(i) )
+            {
+                //Log("entity> " + ToString(GetElement(i)) );
+                if(offset + GetElement(i).GetNumberOfBits() > BIT_INT_SIZE)
+                {
+                    maskArrayIndex++;
+                    offset = 0;
+                }
+                mask = mask_array.Get(maskArrayIndex);
+                int value = BitToDec( mask, offset, GetElement(i).GetCompareMask() );
+                offset = offset + GetElement(i).GetNumberOfBits();
+                GetElement(i).SetValue( value );
+                //HOTFIX 
+                if ( i == alpRPelements.REPUTATION && alp_Player.GetIdentity() ) {
+                    alp_Player.GetIdentity().SetPlayerLevel( value );   
+                }
+            }
+        }       
+    }
 	
 	int BitToDec(int mask, int index, int compareMask)
 	{
@@ -194,31 +194,31 @@ class alpSync
 		return true;
 	}		
 	
-	void SerializeStats(ref array<int> mask_array)
-	{
-		
-		int offset = 0;
-		int mask = 0;
-		
-		for(int i = 0; i < NUMBER_OF_ELEMENTS; i++)
-		{
-			if(  GetElement(i) )
-			{
-				//GetElement(i).Update();
-				
-				if( (GetElement(i).GetNumberOfBits() + offset) > BIT_INT_SIZE )
-				{
-					mask_array.Insert(mask);
-					offset = 0;
-					mask = 0;
-				}
-				mask = mask | (GetElement(i).GetValue() << offset);
-				offset = offset + GetElement(i).GetNumberOfBits();
-			}
-		}
-		mask_array.Insert(mask);
-		
-	}	
+	void SerializeStats(array<int> mask_array)
+    {
+        
+        int offset = 0;
+        int mask = 0;
+        
+        for(int i = 0; i < NUMBER_OF_ELEMENTS; i++)
+        {
+            if(  GetElement(i) )
+            {
+                //GetElement(i).Update();
+                
+                if( (GetElement(i).GetNumberOfBits() + offset) > BIT_INT_SIZE )
+                {
+                    mask_array.Insert(mask);
+                    offset = 0;
+                    mask = 0;
+                }
+                mask = mask | (GetElement(i).GetValue() << offset);
+                offset = offset + GetElement(i).GetNumberOfBits();
+            }
+        }
+        mask_array.Insert(mask);
+        
+    }
 	
 	//stats enhanced
 	

@@ -274,12 +274,12 @@ class alp_Radioactive_Barrel : Container_Base
 
 	}
 	
-	override bool CanReceiveItemIntoCargo(EntityAI cargo)
+	override bool CanReceiveItemIntoCargo(EntityAI item)
 	{
 		return IsOpen();
 	}
 	
-	override bool CanReleaseCargo(EntityAI attachment)
+	override bool CanReleaseCargo(EntityAI cargo)
 	{
 		return IsOpen();
 	}

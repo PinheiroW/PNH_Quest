@@ -69,9 +69,9 @@ class alpOptionsMSradiation
 
 class alpMissionList 
 {
-	ref map<string,int>										MissionGroupLimit;
-	ref array<ref alpMissionListItem>						MissionList 	= new ref array<ref alpMissionListItem>;
-	
+    ref map<string,int>                                     MissionGroupLimit;
+    ref array<ref alpMissionListItem>                       MissionList     = new array<ref alpMissionListItem>;
+    
 }
 
 

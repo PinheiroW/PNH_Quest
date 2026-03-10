@@ -15,39 +15,39 @@ class alpAbilityStat extends alpStatBase
 	
 
 	
-	void alpAbilityStat(string img,  ref WrapSpacerWidget w, float level, float valueProgres = 0, bool widthIcon = false)
-	{
+	void alpAbilityStat(string img,  WrapSpacerWidget w, float level, float valueProgres = 0, bool widthIcon = false)
+    {
 
-		alp_ValueProgres = valueProgres;
+        alp_ValueProgres = valueProgres;
 
-		
-		alp_Parent = w;
-		
-	
-		Widget root = GetGame().GetWorkspace().CreateWidgets( "PNH_Missions/gui/layouts/abilityStat.layout",w) ;
-		//
-			
-		alp_Main =  Widget.Cast( root.FindAnyWidget("STAT_panel") );
-		
-		
-		
-		
-		alp_BarLevel = ProgressBarWidget.Cast( root.FindAnyWidget("STAT_level") );
-		alp_BarProgres = ProgressBarWidget.Cast( root.FindAnyWidget("STAT_progress") );
-		
-		if (!widthIcon)		
-			alp_Icon = ImageWidget.Cast( root.FindAnyWidget("STAT_icon") );
-		else 
-			alp_Icon = ImageWidget.Cast( root.FindAnyWidget("STAT_iconW") );
-	
-				
-		alp_Icon.LoadImageFile(0,img);
-		alp_Icon.Show(true);
-		
-		
-		SetValueProgres( alp_ValueProgres );
-		SetValueLevel( level );
-	}
+        
+        alp_Parent = w;
+        
+    
+        Widget root = GetGame().GetWorkspace().CreateWidgets( "PNH_Missions/gui/layouts/abilityStat.layout",w) ;
+        //
+            
+        alp_Main =  Widget.Cast( root.FindAnyWidget("STAT_panel") );
+        
+        
+        
+        
+        alp_BarLevel = ProgressBarWidget.Cast( root.FindAnyWidget("STAT_level") );
+        alp_BarProgres = ProgressBarWidget.Cast( root.FindAnyWidget("STAT_progress") );
+        
+        if (!widthIcon)     
+            alp_Icon = ImageWidget.Cast( root.FindAnyWidget("STAT_icon") );
+        else 
+            alp_Icon = ImageWidget.Cast( root.FindAnyWidget("STAT_iconW") );
+    
+                
+        alp_Icon.LoadImageFile(0,img);
+        alp_Icon.Show(true);
+        
+        
+        SetValueProgres( alp_ValueProgres );
+        SetValueLevel( level );
+    }
 	
 	void SetValueLevel(float value)
 	{	

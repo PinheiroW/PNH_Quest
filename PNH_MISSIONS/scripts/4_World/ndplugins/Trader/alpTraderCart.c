@@ -588,22 +588,20 @@ class alpTraderCart
 	}
 
 	int GetMoney(int currency = 0)
-	{
-//&&  alpBANK.VerifyBankNote(currencyID, item.GetType())
-		int m = 0;
-		for (int i=0; i<alp_AllMoney.Count();i++)
-		{	
-
-			alp_Cash cash = alp_Cash.Cast( alp_AllMoney.Get(i));
-		
-			if (cash &&  alpBANK.VerifyBankNote(currency, cash.GetType()) )
-			{
-			
-				m += (int) cash.GetMonyeSum();
-			}
-		}
-		return m;		
-	}
+    {
+        int m = 0;
+        for (int i = 0; i < alp_AllMoney.Count(); i++)
+        {   
+            alp_Cash cash = alp_Cash.Cast(alp_AllMoney.Get(i));
+        
+            if (cash && alpBANK.VerifyBankNote(currency, cash.GetType()))
+            {
+                // Alterado de GetMonyeSum para GetMoneySum para coincidir com a nossa correção anterior
+                m += (int) cash.GetMoneySum();
+            }
+        }
+        return m;       
+    }
 	
 	string GetParent( EntityAI item, string rootParent )
 	{

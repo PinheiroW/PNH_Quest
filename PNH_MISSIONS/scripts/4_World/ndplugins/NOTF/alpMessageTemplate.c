@@ -7,13 +7,13 @@ class alpServerMessageTemplate
 	int					LoopTime	= 0;		//time beetween loops
 	
 	
-	void alpServerMessageTemplate(int type, string text, ref array<int> time, int loop, int looptime)
-	{
-		Type=type;
-		Message=text;
-		Time=time;
-		Loop=loop;
-		LoopTime=looptime;
-	}
+	void alpServerMessageTemplate(int type, string text, array<int> time, int loop, int looptime)
+    {
+        Type=type;
+        Message=text;
+        Time=time;
+        Loop=loop;
+        LoopTime=looptime;
+    }
 }
 

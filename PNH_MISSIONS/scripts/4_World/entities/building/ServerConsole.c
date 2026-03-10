@@ -60,8 +60,9 @@ class alp_ServerConsole extends BuildingSuper
 				
 		
 		if ( GetGame().IsClient() ){
-			GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(this.UpdateVisualALP ,1000 );
-		}
+            // Removido o 'this.' para que a referência à função seja lida corretamente pelo CallQueue
+            GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(UpdateVisualALP ,1000 );
+        }
 		
 
 		
@@ -188,8 +189,8 @@ class alp_ServerConsole extends BuildingSuper
 		return 	IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) && IsSetSettingALP( alpMISSIONTRIGGER.ISLOCKED );
 	}
 	bool IsUnlockedALP(){
-		return  ( !IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) || ( IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) && !IsSetSettingALP( alpMISSIONTRIGGER.ISLOCKED ) );
-	}	
+        return ( !IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) ) || ( IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) && !IsSetSettingALP( alpMISSIONTRIGGER.ISLOCKED ) );
+    }	
 	void LockConsoleALP(){
 		SetSettingALP( 	 alpMISSIONTRIGGER.ISLOCKED );	
 		SetSynchDirty();

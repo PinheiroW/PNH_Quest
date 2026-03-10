@@ -9,43 +9,43 @@ class alp_Cash extends Inventory_Base
 		
 		return value;
 	}			
-	int GetMonyeSum()
-	{	
-		if (GetQuantity()>0)
-		{
-		 	return GetMoneyValue() * GetQuantity();
-		}
-		else 
-		{
-			return GetMoneyValue();
-		}
-	
-	}
+	int GetMoneySum()
+    {   
+        if (GetQuantity() > 0)
+        {
+             return GetMoneyValue() * (int)GetQuantity();
+        }
+        else 
+        {
+            return GetMoneyValue();
+        }
+    
+    }
 	
 	override string GetDisplayName()
-	{
-		string sdt = super.GetDisplayName();
-		return FormatNumber(GetMonyeSum()) + " " + sdt;
-	}
-	
-	string FormatNumber(float value)
-	{		
-		int 			v 		= value;		
-		string 			text 	= v.ToString();
-		int 			len 	= text.Length();
-		string 			output  = "";
-		int				s=0;
-		len -=1;
-		for (int i=len; i>=0;i--){
-			
-			if (s==3 || s==6 || s==9){
-				output = text.Get(i) + " " + output;
-			}
-			else output = text.Get(i) + output;
-			s++;
-		}
-		return output;
-	}	
+    {
+        string sdt = super.GetDisplayName();
+        return FormatNumber(GetMoneySum()) + " " + sdt;
+    }
+    
+    string FormatNumber(float value)
+    {       
+        int             v       = (int)value;        
+        string          text    = v.ToString();
+        int             len     = text.Length();
+        string          output  = "";
+        int             s=0;
+        len -=1;
+        for (int i=len; i>=0;i--){
+            
+            if (s==3 || s==6 || s==9){
+                output = text.Get(i) + " " + output;
+            }
+            else output = text.Get(i) + output;
+            s++;
+        }
+        return output;
+    }
 /*	
 	int GetCurrencyType()
 	{
@@ -78,7 +78,7 @@ class alp_Money extends alp_Cash
 		return false;
 	}
 	
-	override void OnIgnitedTarget( EntityAI ignited_item )
+	override void OnIgnitedTarget( EntityAI target_item )
 	{
 	}
 	

@@ -86,11 +86,11 @@ class alpPlayerHive
 		return rpc;
 	}	
 	
-	void WriteSmallSync( ref ScriptRPC rpc)
-	{
-		rpc.Write( alp_StoreValues.PlayerID );
-		rpc.Write( alp_StoreValues.Event );	
-	}
+	void WriteSmallSync( ScriptRPC rpc)
+    {
+        rpc.Write( alp_StoreValues.PlayerID );
+        rpc.Write( alp_StoreValues.Event ); 
+    }
 	
 	void SyncSmallRPC( ParamsReadContext ctx )
 	{

@@ -17,20 +17,20 @@ class alpTraderButtonContainer
 	
 	ref array<Widget> alp_Root;
 	
-	void alpTraderButtonContainer( WrapSpacerWidget parent,ref alpMenuCategory menu,  int selected = 0 )
-	{
-		alp_Menu	= menu;
-		alp_Parent	= parent;
+	void alpTraderButtonContainer( WrapSpacerWidget parent, alpMenuCategory menu,  int selected = 0 )
+    {
+        alp_Menu    = menu;
+        alp_Parent  = parent;
 
-		alp_Buttons = new array<ButtonWidget>;
-		alp_Root = new array<Widget>;
-		
-		alp_SelectedButton = selected;
-		
-	
-		
-		Init();
-	}
+        alp_Buttons = new array<ButtonWidget>;
+        alp_Root = new array<Widget>;
+        
+        alp_SelectedButton = selected;
+        
+    
+        
+        Init();
+    }
 	
 	void ~alpTraderButtonContainer()
 	{

@@ -235,17 +235,17 @@ class alpMissionTemplate
 
 	bool										radiationSpawnedByContaminedArea =	false;
 	int											radiationDynamic		=	0;
-	ref array<int>								radiusOfRadiation		=	new ref array<int>;
-	int											heightOfRadiationArea	= 	0;	
-	bool										enableDeactivation;	
-	bool										enableSineFunction		=	false;
-	ref array<float>							strengthOfRadiation		=	new ref array<float>;	
-	float										strengthOfRadiationOffset;
-	int 										timeToFullRadiation  	=	0;
-	float										rainingMultiplyRadiation=   0;		
-	
-	ref array<ref JsonDataContaminatedAreaALP>	contaminedAreas			= 	new array<ref JsonDataContaminatedAreaALP>;	
-	ref array<ref JsonDataContaminatedAreaALP>	contaminedAreasDynamic	= 	new array<ref JsonDataContaminatedAreaALP>;	
+	ref array<int>                               radiusOfRadiation       =   new array<int>;
+    int                                         heightOfRadiationArea   =   0;  
+    bool                                        enableDeactivation; 
+    bool                                        enableSineFunction      =   false;
+    ref array<float>                            strengthOfRadiation     =   new array<float>;   
+    float                                       strengthOfRadiationOffset;
+    int                                         timeToFullRadiation     =   0;
+    float                                       rainingMultiplyRadiation=   0;      
+    
+    ref array<ref JsonDataContaminatedAreaALP>  contaminedAreas         =   new array<ref JsonDataContaminatedAreaALP>; 
+    ref array<ref JsonDataContaminatedAreaALP>  contaminedAreasDynamic  =   new array<ref JsonDataContaminatedAreaALP>;
 
 //	float										conditionCheckTime		=  180;
 //	string 										missionDescription;				//not used now
@@ -392,8 +392,11 @@ class alpVehicles
 
 
 
+//Radiation suit template
+//----------------------------------------------------------------------------------------------
 class alpProtectionItem 
 {
+	// ===== CORREÇÕES APLICADAS AQUI (Removido o 'ref' de variáveis básicas) =====
 	string type;
 	float biological;
 	float chemical;
@@ -401,13 +404,11 @@ class alpProtectionItem
 	bool hasdosimeter;			
 	float filterefficiency;
 };	
-
-
 //Radiation suit template end
 //----------------------------------------------------------------------------------------------
 
+//loot table end
 
-//loot table
 class alpLoot 
 {
 	string 							title;

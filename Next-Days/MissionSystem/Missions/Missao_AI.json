@@ -1,0 +1,87 @@
+[
+    {
+        "className": "ZmbM_PrisonerSkinny",
+        "type": "static",
+        "nominal": [
+            1,
+            1
+        ],
+        "restock": 0,
+        "position": [
+            5.7001953125,
+            -0.9149899482727051,
+            10.489990234375
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": []
+    },
+    {
+        "className": "ZmbM_PrisonerSkinny",
+        "type": "static",
+        "nominal": [
+            1,
+            1
+        ],
+        "restock": 0,
+        "position": [
+            -0.2998046875,
+            -0.9149899482727051,
+            12.280029296875
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": []
+    },
+    {
+        "className": "ZmbM_PrisonerSkinny",
+        "type": "static",
+        "nominal": [
+            1,
+            1
+        ],
+        "restock": 0,
+        "position": [
+            -5.0,
+            -0.9149899482727051,
+            10.33984375
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": []
+    },
+    {
+        "className": "ZmbM_PrisonerSkinny",
+        "type": "static",
+        "nominal": [
+            1,
+            1
+        ],
+        "restock": 0,
+        "position": [
+            -9.0,
+            -0.9149899482727051,
+            7.469970703125
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": []
+    },
+    {
+        "className": "ZmbM_PrisonerSkinny",
+        "type": "static",
+        "nominal": [
+            1,
+            1
+        ],
+        "restock": 0,
+        "position": [
+            -8.6005859375,
+            -0.9149899482727051,
+            0.780029296875
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": []
+    }
+]

@@ -1934,30 +1934,33 @@ Print("ALPMS: load mission from hive: " + alp_Name + " was successfull");
 	
 			
 			if ( toxicZone )
-			{
-				toxicZone.SetupZoneData(  GetSetupForToxicZone(area)  );
-				
-				if ( area.Type == "ContaminatedArea_Dynamic" )
-				{	
-					toxicZone.SetLifetimeMax( GetTemplate().lifeTime );
-					toxicZone.SetLifetime( GetTemplate().lifeTime );
-															
-				} else {
-					toxicZone.SetLifetimeMax( ECE_NOLIFETIME );
-					toxicZone.SetLifetime( ECE_NOLIFETIME );								
-				}
-				
-				alpMissionElement e = new alpMissionElement(toxicZone);	
-				alp_ToxicZones.Insert( e );					
-				
-				if ( isDynamic ) {
-					m_Hive.AddAreaDynamic(area.Type, toxicZone.GetID(),index, toxicZone.GetPosition(),toxicZone.GetYawPitchRoll(),0);	
-				} else {
-					m_Hive.AddArea(area.Type, toxicZone.GetID(),index, toxicZone.GetPosition(),toxicZone.GetYawPitchRoll(),0);	
-				}
-				
-				Print("ALPMS: mission " + GetName() + " - " + position + " - toxic zone spawned successfully");	//log	
-			}
+            {
+                toxicZone.SetupZoneData(  GetSetupForToxicZone(area)  );
+                
+                if ( area.Type == "ContaminatedArea_Dynamic" )
+                {   
+                    // --- CORREÇÃO DO CONFLITO COM A ECONOMIA CENTRAL ---
+                    // Ao dar um Lifetime muito alto, garantimos que o DayZ base ignora a limpeza deste objeto
+                    // evitando o erro "NULL pointer" quando o mod tenta apagá-lo no final da missão.
+                    toxicZone.SetLifetimeMax( 36000 );
+                    toxicZone.SetLifetime( 36000 );
+                                                            
+                } else {
+                    toxicZone.SetLifetimeMax( ECE_NOLIFETIME );
+                    toxicZone.SetLifetime( ECE_NOLIFETIME );                                
+                }
+                
+                alpMissionElement e = new alpMissionElement(toxicZone); 
+                alp_ToxicZones.Insert( e );                 
+                
+                if ( isDynamic ) {
+                    m_Hive.AddAreaDynamic(area.Type, toxicZone.GetID(),index, toxicZone.GetPosition(),toxicZone.GetYawPitchRoll(),0);   
+                } else {
+                    m_Hive.AddArea(area.Type, toxicZone.GetID(),index, toxicZone.GetPosition(),toxicZone.GetYawPitchRoll(),0);  
+                }
+                
+                Print("ALPMS: mission " + GetName() + " - " + position + " - toxic zone spawned successfully"); //log   
+            }
 			else
 			{
 				Print("ERROR IN SPAWNING TOXIC ZONE");
@@ -2419,19 +2422,18 @@ Print("ALPMS: load mission from hive: " + alp_Name + " was successfull");
 	}
 	
 	private void DeleteToxicZones()
-	{
-		if ( alp_ToxicZones )
-		{
-			foreach(alpMissionElement e : alp_ToxicZones){
-				if ( e.Get() ){
-					GetGame().ObjectDelete( e.Get() );	
-				}				
-			}		
-			alp_ToxicZones.Clear();			
-		}
-		
-		
-	}
+    {
+        if ( alp_ToxicZones )
+        {
+            foreach(alpMissionElement e : alp_ToxicZones){
+                if ( e.Get() ){
+                    // Voltamos a usar o apagamento forçado (vai funcionar graças ao Passo 2)
+                    GetGame().ObjectDelete( e.Get() );  
+                }               
+            }       
+            alp_ToxicZones.Clear();         
+        }
+    }
 	
 	
 	private void DeleteStructures()

@@ -2705,22 +2705,29 @@ Print("ALPMS: load mission from hive: " + alp_Name + " was successfull");
 				break;
 			}
 			case "weapons":
-			{
-				classNames = loots.items.Get(loots.items.GetRandomIndex());
-				
-				
-				
-				wep = Weapon_Base.Cast(ent.GetInventory().CreateInInventory(classNames.Get(0)));	
-				
-				if ( wep && ent.IsPlayer() )
-				{
-					PlayerBase player = PlayerBase.Cast( ent ) ;
-					
-					if ( player && !player.GetItemInHands() )
-					{
-						player.ServerTakeEntityToHands( wep );	
-					}
-				}
+            {
+                classNames = loots.items.Get(loots.items.GetRandomIndex());
+                
+                // --- CORREÇÃO AI BANDITS ---
+                // 1. Tenta forçar a arma a nascer já equipada (nas mãos ou nas costas da IA)
+                wep = Weapon_Base.Cast(ent.GetInventory().CreateAttachment(classNames.Get(0))); 
+                
+                // 2. Se a entidade não tiver o slot (ou estiver cheio), cai no padrão e cria na mochila
+                if ( !wep ) 
+                {
+                    wep = Weapon_Base.Cast(ent.GetInventory().CreateInInventory(classNames.Get(0)));    
+                }
+                
+                // 3. Mantém a regra original intocável para NPCs/Jogadores Humanos
+                if ( wep && ent.IsPlayer() )
+                {
+                    PlayerBase player = PlayerBase.Cast( ent ) ;
+                    
+                    if ( player && !player.GetItemInHands() )
+                    {
+                        player.ServerTakeEntityToHands( wep );  
+                    }
+                }
 				
 				
 				if (wep)

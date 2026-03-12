@@ -1,0 +1,13 @@
+{
+    "IDE": 957251628,
+    "Location": "Chernogorsk Factory",
+    "Position": [
+        6880.1845703125,
+        8.367634773254395,
+        3088.597900390625
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

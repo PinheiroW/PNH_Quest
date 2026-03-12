@@ -1,0 +1,911 @@
+{
+    "active": 1,
+	"spawnInNightOnly":1,	
+    "chance": 1.0,
+    "nominal": 1,
+    "lifeTime": 0,
+    "restock": 99,
+	"missionRespawn":3600,	
+    "missionSafeSpawnRadius": 200,
+    "distanceRadius": 200,
+    "safeRadius": 200,
+    "cleanRadius": 300,
+	"sendInfo":1,			
+	"startMessage":"Last survivors have found sanctuary at #pos and trying to find others survivors. Maybe you should join them...",	
+	"endMessage":"All dead at #pos, it was mess. There is no safe place on this island any more...",	
+	"showInMap":1,
+	"mapTitle":"Refugee camp at school",	
+    "position": [
+        [
+            3234.139892578125,
+            203.0469970703125,
+            13029.099609375,
+            0.0
+        ],
+        [
+            8674.85,
+            104.633,
+            12791.8,
+            -90.0
+        ],
+        [
+            12188.1,
+            11.3124,
+            9762.95,
+            -142.0
+        ],
+        [
+            10239.7,
+            23.2555,
+            2586.3,
+            -162.0
+        ]		
+    ],
+    "structures": [],
+    "NPCdynamic": [
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                7.7001953125,
+                10.676010131835938,
+                -1.0
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}			
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                -7.1298828125,
+                1.3119964599609376,
+                27.80078125
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}		
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                33.35009765625,
+                1.2400054931640626,
+                8.5
+            ],
+            "yaw": -0.055972740054130557,
+            "pitch": -1.5248967409133912,
+            "roll": 2.0616493225097658,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}		
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                9.81005859375,
+                1.3119964599609376,
+                1.7001953125
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}				
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                32.210205078125,
+                4.41400146484375,
+                11.6005859375
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}				
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                24.550048828125,
+                4.41400146484375,
+                19.30078125
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}				
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                18.72021484375,
+                7.514007568359375,
+                40.400390625
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}				
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                27.650146484375,
+                7.514007568359375,
+                35.5
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}				
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                27.610107421875,
+                7.514007568359375,
+                19.30078125
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"CIVIL_HEAD",
+				"chance":0.8
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"CIVIL_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_PANTS",
+				"chance":1.0
+				},	
+				{
+				"title":"CIVIL_BOOTS",
+				"chance":1.0
+				},		
+				{
+				"title":"CIVIL_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.1
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				},
+				{
+				"title":"Food_1",
+				"chance":0.4
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.6
+				},
+				{
+				"title":"Medic_1",
+				"chance":0.2
+				},				
+				{
+				"title":"Ammo_ALL",
+				"chance":0.2
+				},				
+				{
+				"title":"RareItem_Money",
+				"chance":0.05
+				}				
+			]
+        },
+        {
+            "className": "SurvivorM_Denis",
+            "chance": 0.5,
+            "position": [
+                0.3701171875,
+                7.514007568359375,
+                -13.599609375
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "IsDead":1,
+            "cargo": [
+				{
+				"title":"SOLDIER_HEAD",
+				"chance":0.5
+				},	
+				{
+				"title":"SOLDIER_MASK",
+				"chance":0.5
+				},			
+				{
+				"title":"SOLDIER_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_GLOVES",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_PANTS",
+				"chance":1.0
+				},		
+				{
+				"title":"SOLDIER_BOOTS",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"SOLDIER_VESTS",
+				"chance":0.5
+				},				
+				{
+				"title":"Key_1",
+				"chance":0.7
+				},
+				{
+				"title":"RareItem_NVG",
+				"chance":0.05
+				},
+				{
+				"title":"RareItem_SILENCERS",
+				"chance":0.2
+				},			
+				{
+				"title":"Ammo_ALL",
+				"chance":1
+				},			
+				{
+				"title":"Ammo_ALL",
+				"chance":1
+				},	
+				{
+				"title":"Medic_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Medic_2",
+				"chance":0.25				
+				},					
+				{
+				"title":"HuntingRifles_1",
+				"chance":1.0
+				},	
+				{
+				"title":"MagHuntingRifles_1",
+				"chance":0.5
+				}		
+			]
+        }
+    ],
+    "loot": [
+        {
+            "className": "BarrelHoles_Blue",
+            "makePersist": 0,
+            "positionOffset": 0.0,
+            "chance": 1.0,
+            "stashed": 0,
+            "locked": 0,
+            "position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "yaw": 0.0034970843698829414,
+            "pitch": 0.22730925679206849,
+            "roll": 1.2975132465362549,
+            "cargo": []
+        },
+        {
+            "className": "BarrelHoles_Red",
+            "makePersist": 0,
+            "positionOffset": 0.0,
+            "chance": 1.0,
+            "stashed": 0,
+            "locked": 0,
+            "position": [
+                -7.83984375,
+                0.0120086669921875,
+                18.30078125
+            ],
+            "yaw": -0.05955207720398903,
+            "pitch": -3.355595350265503,
+            "roll": 0.9932305216789246,
+            "cargo": []
+        },
+        {
+            "className": "Fireplace",
+            "makePersist": 0,
+            "positionOffset": 0.0,
+            "chance": 1.0,
+            "stashed": 0,
+            "locked": 0,
+            "position": [
+                5.489990234375,
+                10.23010375976563,
+                -7.599609375
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "cargo": []
+        },
+        {
+            "className": "MediumTent_Green",
+            "makePersist": 0,
+            "positionOffset": 0.0,
+            "chance": 1.0,
+            "stashed": 0,
+            "locked": 0,
+            "position": [
+                12.16015625,
+                10.23010375976563,
+                -4.19921875
+            ],
+            "yaw": 0.0,
+            "pitch": 0.0,
+            "roll": -0.0,
+            "cargo": [
+				{
+				"title":"Food_1",
+				"chance":1.0
+				},				
+				{
+				"title":"Food_1",
+				"chance":0.5
+				},			
+				{
+				"title":"Shotguns_1",
+				"chance":1.0
+				},	
+				{
+				"title":"Mag_ALL",
+				"chance":1.0
+				},			
+				{
+				"title":"Ammo_ALL",
+				"chance":0.5
+				},	
+				{
+				"title":"Ammo_ALL",
+				"chance":0.5
+				},					
+				{
+				"title":"Ammo_ALL",
+				"chance":0.5
+				},
+				{
+				"title":"Tools_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Ammo_ALL",
+				"chance":0.5
+				},		
+				{
+				"title":"Ammo_ALL",
+				"chance":0.5
+				},
+				{
+				"title":"Ammo_ALL",
+				"chance":0.5
+				},								
+				{
+				"title":"Pistols_1",
+				"chance":0.5
+				},
+				{
+				"title":"Food_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Ammo_ALL",
+				"chance":0.5
+				}													
+			]
+        },
+        {
+            "className": "Fireplace",
+            "positionOffset": 0.0,
+            "chance": 1.0,
+            "position": [
+                1.10009765625,
+                0.0319976806640625,
+                11.30078125
+            ],
+            "yaw": 0.003497069701552391,
+            "pitch": 0.15387068688869477,
+            "roll": 1.3745027780532838,
+            "cargo": []
+        }
+    ],
+    "vehicles": []
+}

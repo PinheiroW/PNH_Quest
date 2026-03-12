@@ -1,0 +1,13 @@
+{
+    "IDE": 151081115,
+    "Location": "Bay Tikhaya",
+    "Position": [
+        1129.12841796875,
+        6.894373893737793,
+        2399.65869140625
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

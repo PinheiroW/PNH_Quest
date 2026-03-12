@@ -1,0 +1,13 @@
+{
+    "IDE": 1276854235,
+    "Location": "Pusta",
+    "Position": [
+        9164.52734375,
+        224.3890380859375,
+        3895.712890625
+    ],
+    "Ammount": 15000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

@@ -1,0 +1,25 @@
+{	
+	"active":1,	
+	"chance":1,
+	"nominal":1,
+	"restock":1,
+	"timeOffset":0,
+	"lifeTime":0,
+	"missionRespawn":0,
+	"timeRespawn":0,
+	"missionSafeSpawnRadius":0,
+	"safeRadius":20000,
+	"distanceRadius":0,
+	"cleanRadius":25000,
+	"alertMessage":0,
+	"sendInfo":0,		
+	"showInMap":0,
+	"position": [
+		[7750,0,7750,0]
+		],
+	"positionOffset":0,		
+	"radiusOfRadiation":[20000,20000],
+	"strengthOfRadiation":[0.4,0.4],
+	"enableSineFunction":1,
+	"strengthOfRadiationOffset":0.2
+}

@@ -1,0 +1,42 @@
+{
+    "QuestNominal": 2,
+    "GiftToNewPlayer": [
+        0,
+        0,
+        0
+    ],
+    "NPC_Menu_blur": 0.0,
+    "ATM_Menu_blur": 0.0,
+    "ATM_NotRequiresPaymentCard": 0,
+    "TraderRestockingPerTime": 7200,
+    "BankProfit": 0.019999999552965165,
+    "BankLoanLimitPerAssets": 0.019999999552965165,
+    "BankLoanInterestPerDay": 0.05000000074505806,
+    "BankRewardForWantedPerson": [
+        5000,
+        2
+    ],
+    "PlayerDepositLimit": 100000000,
+    "PlayerLoanLimit": 500000,
+    "DisableExchange": 0,
+    "MakeTraderLogs": 0,
+    "DeleteDroppedItem": 1,
+    "NoKeyForBoughtVehicle": 0,
+    "KillZombiesWhileAttackAtTrader": 1,
+    "ShowAvailableItemInStock": 1,
+    "ShowItemsWithNoStock": 0,
+    "ShowItemsNotTradeable": 0,
+    "FoodRaw": 1.0,
+    "FoodBaked": 1.5,
+    "FoodBoiled": 1.5,
+    "FoodDried": 3.0,
+    "FoodBurned": 0.0,
+    "FoodRotten": 0.0,
+    "LiquidPricelist": {
+        "512": 0.25,
+        "2048": 5.0,
+        "4096": 2.0,
+        "8192": 5.0,
+        "16384": 1.0
+    }
+}

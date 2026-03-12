@@ -1,0 +1,13 @@
+{
+    "IDE": 1932172554,
+    "Location": "Svetlojarsk",
+    "Position": [
+        13800.4013671875,
+        20.46794319152832,
+        13297.7509765625
+    ],
+    "Ammount": 25000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

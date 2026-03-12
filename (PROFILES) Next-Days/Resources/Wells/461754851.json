@@ -1,0 +1,13 @@
+{
+    "IDE": 461754851,
+    "Location": "Bor",
+    "Position": [
+        3347.140625,
+        186.33193969726563,
+        3910.22802734375
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

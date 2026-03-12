@@ -188,8 +188,8 @@ class alp_ServerConsole extends BuildingSuper
 		return 	IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) && IsSetSettingALP( alpMISSIONTRIGGER.ISLOCKED );
 	}
 	bool IsUnlockedALP(){
-		return  ( !IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) || ( IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) && !IsSetSettingALP( alpMISSIONTRIGGER.ISLOCKED ) );
-	}	
+        return ( !IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) || ( IsSetSettingALP( alpMISSIONTRIGGER.CANBELOCKED ) && !IsSetSettingALP( alpMISSIONTRIGGER.ISLOCKED ) ) ); // <--- CORRIGIDO (adicionado um ')' no final)
+    }	
 	void LockConsoleALP(){
 		SetSettingALP( 	 alpMISSIONTRIGGER.ISLOCKED );	
 		SetSynchDirty();

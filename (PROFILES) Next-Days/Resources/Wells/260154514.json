@@ -1,0 +1,13 @@
+{
+    "IDE": 260154514,
+    "Location": "Kamenka",
+    "Position": [
+        1914.5028076171876,
+        6.466916084289551,
+        2231.609130859375
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

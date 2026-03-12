@@ -1,0 +1,13 @@
+{
+    "IDE": 1352386880,
+    "Location": "Shakhovka",
+    "Position": [
+        9661.3798828125,
+        209.75738525390626,
+        6561.9599609375
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

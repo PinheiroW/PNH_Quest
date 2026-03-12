@@ -1,0 +1,13 @@
+{
+    "IDE": 369403091,
+    "Location": "Zelenogorsk",
+    "Position": [
+        2691.804443359375,
+        212.02879333496095,
+        5602.341796875
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

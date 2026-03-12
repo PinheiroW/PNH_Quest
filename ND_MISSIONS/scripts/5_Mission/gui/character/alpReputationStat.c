@@ -16,27 +16,27 @@ class alpReputationStat extends alpStatBase
 	
 
 	
-	void alpReputationStat(ref WrapSpacerWidget w, float currentRep=0 , float maxRep=0)
-	{
+	void alpReputationStat(WrapSpacerWidget w, float currentRep=0 , float maxRep=0) // <--- CORRIGIDO (removido o 'ref')
+    {
 
 
-		
-		alp_Parent = w;
-		
-	
-		Widget panel = GetGame().GetWorkspace().CreateWidgets( "ND_MISSIONS/gui/layouts/reputationStat.layout",w) ;
-		//
-			
-		alp_Main =  Widget.Cast( panel.FindAnyWidget("BL_recordsBG") );
-		
-		alp_Value1 =  TextWidget.Cast( panel.FindAnyWidget("ValueC1") );
-		alp_Value2 =  TextWidget.Cast( panel.FindAnyWidget("ValueC0") );
-		
-		
-		SetReputationRecord( currentRep, maxRep );
 
-		
-	}
+        alp_Parent = w;
+        
+    
+        Widget panel = GetGame().GetWorkspace().CreateWidgets( "ND_MISSIONS/gui/layouts/reputationStat.layout",w) ;
+        //
+            
+        alp_Main =  Widget.Cast( panel.FindAnyWidget("BL_recordsBG") );
+        
+        alp_Value1 =  TextWidget.Cast( panel.FindAnyWidget("ValueC1") );
+        alp_Value2 =  TextWidget.Cast( panel.FindAnyWidget("ValueC0") );
+        
+        
+        SetReputationRecord( currentRep, maxRep );
+
+        
+    }
 	
 
 	void SetReputationRecord( float currentRep=0 , float maxRep=0)

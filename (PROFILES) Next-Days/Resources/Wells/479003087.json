@@ -1,0 +1,13 @@
+{
+    "IDE": 479003087,
+    "Location": "Novaya Petrovka",
+    "Position": [
+        3435.7998046875,
+        193.13055419921876,
+        13052.623046875
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

@@ -1,0 +1,13 @@
+{
+    "IDE": 814809725,
+    "Location": "Nadezhdino",
+    "Position": [
+        5863.03662109375,
+        134.3960418701172,
+        4815.9130859375
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

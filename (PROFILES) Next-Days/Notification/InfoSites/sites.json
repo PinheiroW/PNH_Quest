@@ -1,0 +1,68 @@
+{
+    "Language": [
+        "portuguese"
+    ],
+    "Button1": [
+        "Donate",
+        "https://paypal.me/AlPepino?locale.x=cs_CZ"
+    ],
+    "Button2": [],
+    "Button3": [],
+    "Button4": [],
+    "Button5": [
+        "Discord",
+        "https://discord.gg/6dMThNM"
+    ],
+    "Items": [
+        {
+            "Menu": [
+                "TESTE 0"
+            ],
+            "Text": [
+                [
+                    "m0_ENG.txt"
+                ]
+            ]
+        },
+        {
+            "Menu": [
+                "TESTE 1"
+            ],
+            "Text": [
+                [
+                    "m1_ENG.txt"
+                ]
+            ]
+        },
+        {
+            "Menu": [
+                "TESTE 2"
+            ],
+            "Text": [
+                [
+                    "m2_ENG.txt"
+                ]
+            ]
+        },
+        {
+            "Menu": [
+                "TESTE 3"
+            ],
+            "Text": [
+                [
+                    "m3_ENG.txt"
+                ]
+            ]
+        },
+        {
+            "Menu": [
+                "TESTE 4"
+            ],
+            "Text": [
+                [
+                    "m4_ENG.txt"
+                ]
+            ]
+        }
+    ]
+}

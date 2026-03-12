@@ -44,11 +44,11 @@ class alpPluginNDresources extends alpPlugin
 		
 	}	
 	
-	void WriteOnConnectRPC(ref ScriptRPC rpc)
-	{
-		rpc.Write( alp_ResourcesSetting );
+	void WriteOnConnectRPC(ScriptRPC rpc) // <--- CORRIGIDO (removido o 'ref')
+    {
+        rpc.Write( alp_ResourcesSetting );
 
-	}
+    }
 	
 	
 	

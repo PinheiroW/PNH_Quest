@@ -1,0 +1,23 @@
+{
+	"active":1,	
+	"nominal":1,	
+	"timeOffset":86400,
+	"NPC":[	
+		{
+		"className":"alp_SurvivorF_Maria",	
+		"position":[0,0,0],		
+		"EnabledInteractions":32,			
+		"AvailableGoodsByTag":["NONE"],
+		"CurrencyID":0,	
+		"StockID":100
+		},	
+		{
+		"className":"alp_SurvivorM_Francis",
+		"position":[0,0,0],				
+		"EnabledInteractions":32,		
+		"AvailableGoodsByTag":["NONE"],		
+		"CurrencyID":1,			
+		"StockID":101
+		}	
+	]
+}

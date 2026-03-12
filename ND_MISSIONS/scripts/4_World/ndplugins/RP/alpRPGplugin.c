@@ -105,11 +105,11 @@ class alpPluginNDrp extends alpPlugin
 		
 	}	
 	
-	void WriteOnConnectRPC(ref ScriptRPC rpc)
-	{
-		rpc.Write( alp_OptionsRP_Players );
-		rpc.Write( alp_OptionsRP_Vehicles );
-	}
+	void WriteOnConnectRPC(ScriptRPC rpc) // <--- CORRIGIDO (removido o 'ref')
+    {
+        rpc.Write( alp_OptionsRP_Players );
+        rpc.Write( alp_OptionsRP_Vehicles );
+    }
 	
 	override void OnSpawnManaged( PlayerBase player )
 	{
@@ -128,28 +128,28 @@ class alpPluginNDrp extends alpPlugin
 
 	}	
 	
-	void InitVehiclesProperties( ref array<ref alpVehicleBehavior> properties)
-	{
-		properties.Insert(  new alpVehicleBehavior("OffroadHatchback",false,10000,0.075,0.075,0.075, 150, 750, 3000 ) );
-		properties.Insert(  new alpVehicleBehavior("OffroadHatchback_Blue",false,10000,0.075,0.075,0.075, 150, 750, 3000 ) );
-		properties.Insert(  new alpVehicleBehavior("OffroadHatchback_White",false,10000,0.075,0.075,0.075, 150, 750, 3000 ) ); 
-		properties.Insert( new alpVehicleBehavior( "CivilianSedan",false,10000,0.065,0.065,0.065, 150, 750, 3000 ) );
-		properties.Insert(  new alpVehicleBehavior("CivilianSedan_Black",false,10000,0.065,0.065,0.065, 150, 750, 3000 ) );
-		properties.Insert(  new alpVehicleBehavior("CivilianSedan_Wine",false,10000,0.065,0.065,0.065, 150, 750, 3000 ) );
-		properties.Insert( new alpVehicleBehavior("Hatchback_02", false,10000,0.070,0.070,0.070 , 150, 750, 3000 ) );
-		properties.Insert( new alpVehicleBehavior("Hatchback_02_Black", false,10000,0.070,0.070,0.070, 150, 750, 3000 ) );
-		properties.Insert( new alpVehicleBehavior("Hatchback_02_Blue", false,10000,0.070,0.070,0.070, 150, 750, 3000 ) );
-		properties.Insert( new alpVehicleBehavior("Sedan_02", false,10000,0.130,0.130,0.130, 150, 750, 3000 ) );
-		properties.Insert( new alpVehicleBehavior("Sedan_02_Grey", false,10000,0.130,0.130,0.130 , 150, 750, 3000 ) );
-		properties.Insert( new alpVehicleBehavior("Sedan_02_Red", false,10000,0.130,0.130,0.130 , 150, 750, 3000 ) );
-		
-		properties.Insert( new alpVehicleBehavior("CrSk_Land_Rover_Defender_110", true,2500,0.04,0.02,0.04, 500, 3000, 10000 ) );
-		properties.Insert( new alpVehicleBehavior("CrSk_Land_Rover_Defender_110_UN", true,2500,0.04,0.02,0.04, 500, 3000, 10000 ) );
-		properties.Insert( new alpVehicleBehavior( "CrSk_Land_Rover_Defender_110_Green", true,2500,0.04,0.02,0.04 , 500, 3000, 10000 ) );
-		properties.Insert( new alpVehicleBehavior("Gerph_Zil130", true,500,0.01,0.0,0.00 , 1000, 5000, 10000 ) );	
-		properties.Insert( new alpVehicleBehavior("Truck_01_Covered", true,500,0.01,0.0,0.00, 1000, 5000, 10000 ) );
-	
-	}
+	void InitVehiclesProperties( array<ref alpVehicleBehavior> properties) // <--- CORRIGIDO (removido o 'ref' antes de 'array')
+    {
+        properties.Insert(  new alpVehicleBehavior("OffroadHatchback",false,10000,0.075,0.075,0.075, 150, 750, 3000 ) );
+        properties.Insert(  new alpVehicleBehavior("OffroadHatchback_Blue",false,10000,0.075,0.075,0.075, 150, 750, 3000 ) );
+        properties.Insert(  new alpVehicleBehavior("OffroadHatchback_White",false,10000,0.075,0.075,0.075, 150, 750, 3000 ) ); 
+        properties.Insert( new alpVehicleBehavior( "CivilianSedan",false,10000,0.065,0.065,0.065, 150, 750, 3000 ) );
+        properties.Insert(  new alpVehicleBehavior("CivilianSedan_Black",false,10000,0.065,0.065,0.065, 150, 750, 3000 ) );
+        properties.Insert(  new alpVehicleBehavior("CivilianSedan_Wine",false,10000,0.065,0.065,0.065, 150, 750, 3000 ) );
+        properties.Insert( new alpVehicleBehavior("Hatchback_02", false,10000,0.070,0.070,0.070 , 150, 750, 3000 ) );
+        properties.Insert( new alpVehicleBehavior("Hatchback_02_Black", false,10000,0.070,0.070,0.070, 150, 750, 3000 ) );
+        properties.Insert( new alpVehicleBehavior("Hatchback_02_Blue", false,10000,0.070,0.070,0.070, 150, 750, 3000 ) );
+        properties.Insert( new alpVehicleBehavior("Sedan_02", false,10000,0.130,0.130,0.130, 150, 750, 3000 ) );
+        properties.Insert( new alpVehicleBehavior("Sedan_02_Grey", false,10000,0.130,0.130,0.130 , 150, 750, 3000 ) );
+        properties.Insert( new alpVehicleBehavior("Sedan_02_Red", false,10000,0.130,0.130,0.130 , 150, 750, 3000 ) );
+        
+        properties.Insert( new alpVehicleBehavior("CrSk_Land_Rover_Defender_110", true,2500,0.04,0.02,0.04, 500, 3000, 10000 ) );
+        properties.Insert( new alpVehicleBehavior("CrSk_Land_Rover_Defender_110_UN", true,2500,0.04,0.02,0.04, 500, 3000, 10000 ) );
+        properties.Insert( new alpVehicleBehavior( "CrSk_Land_Rover_Defender_110_Green", true,2500,0.04,0.02,0.04 , 500, 3000, 10000 ) );
+        properties.Insert( new alpVehicleBehavior("Gerph_Zil130", true,500,0.01,0.0,0.00 , 1000, 5000, 10000 ) );   
+        properties.Insert( new alpVehicleBehavior("Truck_01_Covered", true,500,0.01,0.0,0.00, 1000, 5000, 10000 ) );
+    
+    }
 	
 	alpOptionsRP_Players GetPlayerOptions()
 	{

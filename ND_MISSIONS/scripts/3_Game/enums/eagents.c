@@ -16,6 +16,6 @@ enum eAgents
 
 enum alpeAgents
 {
-	DRUNKENNESS		= 1024;
-	RADIATION		= 2048;
+    DRUNKENNESS     = 1024,
+    RADIATION       = 2048
 }

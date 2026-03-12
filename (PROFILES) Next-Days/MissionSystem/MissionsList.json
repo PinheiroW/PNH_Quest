@@ -1,0 +1,80 @@
+{
+	"MissionList":[		
+		{
+			"type": "trader",
+			"name": "00_TerritoryCurrency"
+		},	
+		{
+			"type": "trader",
+			"name": "01_Trader_Sobor"
+		},
+		{
+			"type": "trader",
+			"name": "02_Trader_Petrovka"
+		},	
+		{
+			"type": "noradiationMission",
+			"name": "14_prison"
+		},
+		{
+			"type": "trader",
+			"name": "14_prisonTrader"
+		},		
+		{
+			"type": "trader",
+			"name": "08_BlackMarket"
+		},		
+		{
+			"type": "radiation",
+			"name": "03_rTISSYstatic"
+		},	
+		{
+			"type": "radiationMission",
+			"name": "04_rTISSY_dynamic"
+		},
+		{
+			"type": "noradiation",
+			"name": "04_rTISSY_dynamicNPC"
+		},		
+		{
+			"type": "radiationMission",
+			"name": "05_rTISSY_dynamic"
+		},
+		{
+			"type": "noradiation",
+			"name": "05_rTISSY_dynamicNPC"
+		},
+		{
+			"type": "radiationMission",
+			"name": "06_rTISSY_dynamic"
+		},
+		{
+			"type": "noradiation",
+			"name": "06_rTISSY_dynamicNPC"
+		},		
+		{
+			"type": "radiationMission",
+			"name": "07_HeliCrash"
+		},			
+		{
+			"type": "noradiationMission",
+			"name": "09_Camp"
+		},		
+		{
+			"type": "radiationMission",
+			"name": "10_TRAIN"
+		},		
+		{
+			"type": "carAccident",
+			"name": "11_caVehiclesRare"
+		},	
+		{
+			"type": "noradiationMission",
+			"name": "13_N_RefugeeCamp"
+		},		
+		{
+			"type": "fuelstation",
+			"name": "15_FuelStation"
+		}		
+	]
+}

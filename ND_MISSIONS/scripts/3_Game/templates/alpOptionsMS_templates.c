@@ -233,16 +233,16 @@ class alpMissionTemplate
 	ref array<ref alpMissionAddNPC>				NPCdynamic				= 	new array<ref alpMissionAddNPC>;
 	ref array<ref alpMissionAddSpawn>			spawnPlaceForVehicles	= 	new array<ref alpMissionAddSpawn>;	
 
-	bool										radiationSpawnedByContaminedArea =	false;
-	int											radiationDynamic		=	0;
-	ref array<int>								radiusOfRadiation		=	new ref array<int>;
-	int											heightOfRadiationArea	= 	0;	
-	bool										enableDeactivation;	
-	bool										enableSineFunction		=	false;
-	ref array<float>							strengthOfRadiation		=	new ref array<float>;	
-	float										strengthOfRadiationOffset;
-	int 										timeToFullRadiation  	=	0;
-	float										rainingMultiplyRadiation=   0;		
+	bool                                        radiationSpawnedByContaminedArea =  false;
+    int                                         radiationDynamic        =   0;
+    ref array<int>                              radiusOfRadiation       =   new array<int>; // <--- CORRIGIDO (removido o 'ref' depois do 'new')
+    int                                         heightOfRadiationArea   =   0;  
+    bool                                        enableDeactivation; 
+    bool                                        enableSineFunction      =   false;
+    ref array<float>                            strengthOfRadiation     =   new array<float>; // <--- CORRIGIDO (removido o 'ref' depois do 'new')  
+    float                                       strengthOfRadiationOffset;
+    int                                         timeToFullRadiation     =   0;
+    float										rainingMultiplyRadiation=   0;		
 	
 	ref array<ref JsonDataContaminatedAreaALP>	contaminedAreas			= 	new array<ref JsonDataContaminatedAreaALP>;	
 	ref array<ref JsonDataContaminatedAreaALP>	contaminedAreasDynamic	= 	new array<ref JsonDataContaminatedAreaALP>;	

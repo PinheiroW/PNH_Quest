@@ -1,0 +1,21 @@
+{	
+	"active":1,	
+	"chance":1,
+	"nominal":1,
+	"restock":1,
+	"timeOffset":0,
+	"lifeTime":0,
+	"safeRadius":1500,
+	"cleanRadius":1600,		
+	"showInMap":1,
+	"mapTitle":"Contaminated area",		
+	"position": [
+		[1559.4,0,14061.6,0]
+		],
+	"positionOffset":0,		
+	"radiusOfRadiation":[1500,1500],	
+	"strengthOfRadiation":[8,8],
+	"enableSineFunction":1,
+	"strengthOfRadiationOffset":6.0	
+	
+}

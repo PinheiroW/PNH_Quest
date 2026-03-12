@@ -1,0 +1,13 @@
+{
+    "IDE": 1503878146,
+    "Location": "Novodmitrovsk",
+    "Position": [
+        10763.4150390625,
+        53.43547439575195,
+        14364.73046875
+    ],
+    "Ammount": 25000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

@@ -1,0 +1,13 @@
+{
+    "IDE": 1562122985,
+    "Location": "Dolina",
+    "Position": [
+        11193.8701171875,
+        76.63813018798828,
+        6573.46923828125
+    ],
+    "Ammount": 15000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

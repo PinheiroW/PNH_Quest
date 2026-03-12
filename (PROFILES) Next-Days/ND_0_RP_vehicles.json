@@ -1,0 +1,11 @@
+{
+    "RequiredKeyToStartEngine": 1,
+    "DisableLocpicking": 0,
+    "DisableLocpickingInTradeZone": 0,
+    "DisableKeyDuplicationInTradeZone": 0,
+    "IndestructibleLockedVehicle": 0,
+    "IndestructibleVehicles": 0,
+    "TimeToForceOpen": 60,
+    "DamageLockpick": 40,
+    "InitVehiclesProperties": 1
+}

@@ -274,15 +274,15 @@ class alp_Radioactive_Barrel : Container_Base
 
 	}
 	
-	override bool CanReceiveItemIntoCargo(EntityAI cargo)
-	{
-		return IsOpen();
-	}
-	
-	override bool CanReleaseCargo(EntityAI attachment)
-	{
-		return IsOpen();
-	}
+	override bool CanReceiveItemIntoCargo(EntityAI item) // <--- CORRIGIDO (era cargo)
+    {
+        return IsOpen();
+    }
+    
+    override bool CanReleaseCargo(EntityAI cargo) // <--- CORRIGIDO (era attachment)
+    {
+        return IsOpen();
+    }
 	
 	//================================================================
 	// ADVANCED PLACEMENT

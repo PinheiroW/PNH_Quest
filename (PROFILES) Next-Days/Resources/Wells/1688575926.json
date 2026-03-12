@@ -1,0 +1,13 @@
+{
+    "IDE": 1688575926,
+    "Location": "Orlovets",
+    "Position": [
+        12090.8037109375,
+        191.43026733398438,
+        7217.73583984375
+    ],
+    "Ammount": 20000.0,
+    "AmmountMax": 30000.0,
+    "RefreshPerRestart": 5000.0,
+    "ChanceRefresh": 0.5
+}

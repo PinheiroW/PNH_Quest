@@ -529,23 +529,29 @@ class alpTraderCoreBase
 	}
 	
 	
-	array<autoptr alpNPCtraderStock> GetStocks(ref array<int> stockID )
-	{
-		array<autoptr alpNPCtraderStock>  stocks = new array<autoptr alpNPCtraderStock> ;
-		
-		stockID = new array<int>;
-		
-		for (int i = 0; i < alp_TraderStockMapped.Count() ; i++)
-		{
-			int id = alp_TraderStockMapped.GetKey( i );
-			alpNPCtraderStock stock = alp_TraderStockMapped.GetElement( i );
-			
-			stockID.Insert( id );
-			stocks.Insert( stock );
-		}
+	array<autoptr alpNPCtraderStock> GetStocks(array<int> stockID)
+    {
+        array<autoptr alpNPCtraderStock> stocks = new array<autoptr alpNPCtraderStock>;
+        
+        // Criamos uma referência local para trabalhar com os IDs
+        array<int> localStockIDs = stockID;
 
-		return stocks;
-	}
+        for (int i = 0; i < alp_TraderStockMapped.Count() ; i++)
+        {
+            int id = alp_TraderStockMapped.GetKey( i );
+            alpNPCtraderStock stock = alp_TraderStockMapped.GetElement( i );
+            
+            // Verificamos se a referência existe antes de inserir
+            if (localStockIDs) 
+            {
+                localStockIDs.Insert( id );
+            }
+            
+            stocks.Insert( stock );
+        }
+
+        return stocks;
+    }
 	
 	
 	void ReadCategories()
@@ -791,27 +797,27 @@ class alpTraderCoreBase
 		stock.Stock = sorted;
 		
 	}	
-	void SetDefaultItems(ref alpNPCtraderStock trader, array<string> tags )
-	{
-		array< autoptr alpTraderItemConfig > items = 	GetTradableItems(tags);
-		
-		
-		
-		trader.Stock = new map<string,int>;
-		
-		for (int i = 0; i < items.Count(); i++)
-		{
-			alpTraderItemConfig item = items.Get(i);
-			
-			alpTraderCategories cat = GetCategory( item.CategoryID );
+	void SetDefaultItems(alpNPCtraderStock trader, array<string> tags ) // <--- CORRIGIDO (removido o 'ref')
+    {
+        array< autoptr alpTraderItemConfig > items =    GetTradableItems(tags);
+        
+        
+        
+        trader.Stock = new map<string,int>;
+        
+        for (int i = 0; i < items.Count(); i++)
+        {
+            alpTraderItemConfig item = items.Get(i);
+            
+            alpTraderCategories cat = GetCategory( item.CategoryID );
 
-			if ( cat )
-			{
-				//Print(item.Name);
-				trader.Stock.Set( item.Name,cat.RestockCap );
-			}						
-		}
-	}	
+            if ( cat )
+            {
+                //Print(item.Name);
+                trader.Stock.Set( item.Name,cat.RestockCap );
+            }                       
+        }
+    }	
 	array< autoptr alpTraderItemConfig > GetTradableItems(array<string> tags = null)
 	{
 		if (!alp_AllItemsByTag )

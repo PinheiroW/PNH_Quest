@@ -1,0 +1,224 @@
+{
+	"active":1,	
+	"isManaged":1,
+	"isPositionRelativeToMasterMission":1,	
+	"nominal":1,
+	"safeRadius":50,
+	"cleanRadius":50,	
+	"NPC":[	
+		{
+		"className":"SurvivorM_Rolf",
+		"IsDead":1,
+		"position":[0,0,-3],
+		"yaw":-40,
+		"pitch":0,
+		"roll":0,
+		"cargo":[
+				{
+				"title":"SOLDIER_HEAD",
+				"chance":0.5
+				},	
+				{
+				"title":"Clothes_RadSuit_2",
+				"chance":1.0
+				},			
+				{
+				"title":"SOLDIER_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_GLOVES",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_PANTS",
+				"chance":1.0
+				},		
+				{
+				"title":"SOLDIER_BOOTS",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"SOLDIER_VESTS",
+				"chance":0.5
+				},
+				{
+				"title":"Clothes_RadSuit_3",
+				"chance":1.0
+				},		
+				{
+				"title":"Medic_1",
+				"chance":1.0
+				},				
+				{
+				"title":"Medic_2",
+				"chance":0.5
+				},
+				{
+				"title":"Medic_3",
+				"chance":0.5
+				},	
+				{
+				"title":"Pistols_1",
+				"chance":1.0
+				},		
+				{
+				"title":"Shotguns_1",
+				"chance":0.5
+				},				
+				{
+				"title":"MagShotguns_1",
+				"chance":0.5
+				},		
+				{
+				"title":"AssaultRifles_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Food_1",
+				"chance":0.8
+				},	
+				{
+				"title":"Tools_1",
+				"chance":0.8
+				},	
+				{
+				"title":"Tools_1",
+				"chance":0.25
+				},		
+				{
+				"title":"RareItem_NVG",
+				"chance":0.25
+				}				
+			]
+		},
+		{
+		"className":"SurvivorF_Helga",
+		"IsDead":1,
+		"position":[4,0,-4],
+		"yaw":30,
+		"pitch":0,
+		"roll":0,
+		"cargo":[
+				{
+				"title":"SOLDIER_HEAD",
+				"chance":0.5
+				},	
+				{
+				"title":"Clothes_RadSuit_2",
+				"chance":1.0
+				},			
+				{
+				"title":"SOLDIER_TOP",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_GLOVES",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_PANTS",
+				"chance":1.0
+				},		
+				{
+				"title":"SOLDIER_BOOTS",
+				"chance":1.0
+				},	
+				{
+				"title":"SOLDIER_BAGS",
+				"chance":0.5
+				},	
+				{
+				"title":"SOLDIER_VESTS",
+				"chance":0.5
+				},
+				{
+				"title":"Clothes_RadSuit_3",
+				"chance":1.0
+				},	
+				{
+				"title":"Medic_1",
+				"chance":1.0
+				},				
+				{
+				"title":"Medic_2",
+				"chance":0.5
+				},			
+				{
+				"title":"Medic_3",
+				"chance":0.5
+				},		
+				{
+				"title":"Pistols_1",
+				"chance":1.0
+				},	
+				{
+				"title":"Automat_1",
+				"chance":0.5
+				},		
+				{
+				"title":"HuntingRifles_1",
+				"chance":0.5
+				},	
+				{
+				"title":"Food_1",
+				"chance":0.8
+				},	
+				{
+				"title":"Tools_1",
+				"chance":0.8
+				},				
+				{
+				"title":"RareItem_NVG",
+				"chance":0.25
+				}					
+			]
+		}		
+	],
+	"structures":[
+		{
+		"className":"alp_shellcrater1",
+		"position":[0,0,0],
+		"yaw":2.910013,
+		"pitch":0.152788,
+		"roll":0
+		}
+	],
+	"contaminedAreasDynamic":
+	[
+		{
+		"positionOffset":50,
+		"timeOffset":5,
+		"chance":1.00,
+		"Area":
+			{
+				"AreaName": "Ship-SW", 
+				"Type": "ContaminatedArea_Dynamic", 
+				"TriggerType": "ContaminatedTrigger_Dynamic",
+				"Data": { 
+					"Pos": [ 0, 0, 0 ],
+					"Radius": 150,
+					"PosHeight": 22,
+					"NegHeight": 10,
+					"InnerRingCount": 1,
+					"InnerPartDist": 50,
+					"OuterRingToggle": 1, 
+					"OuterPartDist": 50, 
+					"OuterOffset": 0, 
+					"VerticalLayers": 0,
+					"VerticalOffset": 0,
+					"ParticleName": "graphics/particles/contaminated_area_gas_bigass"
+					},
+				"PlayerData": {
+					"AroundPartName": "graphics/particles/contaminated_area_gas_around",
+					"TinyPartName": "graphics/particles/contaminated_area_gas_around_tiny",
+					"PPERequesterType": "PPERequester_ContaminatedAreaTint"			
+				}
+			}
+		}			
+	]		
+}

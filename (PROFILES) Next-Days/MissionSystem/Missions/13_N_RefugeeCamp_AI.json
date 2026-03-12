@@ -1,0 +1,640 @@
+[
+    {
+        "className": "ZmbF_BlueCollarFat_Blue",
+        "type": "static",
+        "nominal": [
+            2,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            -7.719970703125,
+            1.266998291015625,
+            8.400390625
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_CitizenANormal_Beige",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            -0.059814453125,
+            1.6959991455078126,
+            29.80078125
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_CitizenANormal_Blue",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            -12.449951171875,
+            1.3430023193359376,
+            25.400390625
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_CitizenBSkinny",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            0.2900390625,
+            1.16400146484375,
+            -10.5
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_Clerk_Normal_White",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            11.1201171875,
+            1.2089996337890626,
+            -0.8994140625
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_HikerSkinny_Blue",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            26.830078125,
+            1.1820068359375,
+            -0.69921875
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_JoggerSkinny_Blue",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            36.10009765625,
+            1.1580047607421876,
+            7.2001953125
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_JournalistNormal_Green",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            26.630126953125,
+            4.316009521484375,
+            -0.8994140625
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_MechanicNormal_Beige",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            34.31005859375,
+            4.3119964599609379,
+            10.6005859375
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_MechanicNormal_Orange",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            37.360107421875,
+            4.625,
+            14.30078125
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbM_CitizenASkinny_Red",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            27.380126953125,
+            3.8590087890625,
+            36.30078125
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_NurseFat",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            25.530029296875,
+            1.1790008544921876,
+            37.400390625
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_ShortSkirt_beige",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            25.7001953125,
+            7.2750091552734379,
+            34.400390625
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_ShortSkirt_white",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            21.35009765625,
+            7.686004638671875,
+            41.1005859375
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_SkaterYoung_Striped",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            33.030029296875,
+            7.7700042724609379,
+            24.30078125
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_SurvivorNormal_Red",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            -2.0498046875,
+            7.8170013427734379,
+            -11.7998046875
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbF_VillagerOld_Green",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            37.0,
+            7.438995361328125,
+            3.5
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbM_CitizenASkinny_Blue",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            12.64013671875,
+            7.5,
+            -7.3994140625
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},
+			{
+			"title":"Ammo_ALL",
+			"chance":0.1
+			},	
+			{
+			"title":"Food_1",
+			"chance":0.1
+			}		
+		]
+    },
+    {
+        "className": "ZmbM_PatrolNormal_Flat",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            1.820068359375,
+            7.4980010986328129,
+            -11.7998046875
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [	
+			{
+			"title":"AI_1_VEST",
+			"chance":0.8
+			},	
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},		
+			{
+			"title":"Ammo_ALL",
+			"chance":0.05
+			}		
+		]
+    },
+    {
+        "className": "ZmbM_PatrolNormal_Summer",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            0.64013671875,
+            10.87200927734375,
+            -9.7998046875
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"AI_1_HEAD",
+			"chance":1.0
+			},	
+			{
+			"title":"AI_1_VEST",
+			"chance":0.8
+			},	
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},		
+			{
+			"title":"Ammo_ALL",
+			"chance":0.05
+			}		
+		]
+    },
+    {
+        "className": "ZmbM_SoldierNormal",
+        "type": "dynamic",
+        "nominal": [
+            1,
+            2
+        ],
+        "restock": 0,
+        "position": [
+            21.16015625,
+            10.6719970703125,
+            -1.0
+        ],
+        "radius": 0,
+        "spawnRadius": 0,
+        "cargo": [
+			{
+			"title":"AI_1_HEAD",
+			"chance":1.0
+			},	
+			{
+			"title":"AI_1_VEST",
+			"chance":0.8
+			},	
+			{
+			"title":"Mag_ALL",
+			"chance":0.05
+			},		
+			{
+			"title":"Ammo_ALL",
+			"chance":0.05
+			}		
+		]
+    }
+]

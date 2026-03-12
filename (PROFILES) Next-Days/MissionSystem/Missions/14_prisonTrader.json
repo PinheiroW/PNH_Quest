@@ -1,0 +1,40 @@
+{	
+	"active":1,	
+	"isManaged":1,
+	"chance":1,
+	"nominal":1,	
+	"safeRadius":10,
+	"cleanRadius":20,	
+	"showInMap":1,
+	"mapTitle":"Rescued survivors",	
+	"alertInfo":1,	
+	"sendInfo":1,	
+	"startMessage":"You have just heard some noise. It seems there is still someone alive. Check the complex again",	
+	"alertMessageIn":"#trader_enter",	
+	"alertMessageOut":"#trader_left",
+	"position": [
+		[2791.33,29.8598,1248.93,0]	
+		],
+	"positionOffset":0,
+	"godmodTrader":1,
+	"godmodPlayers":1,
+	"NPC":[	
+		{
+		"className":"alp_SurvivorM_Quinn",
+		"position":[0,0,0],
+		"AllowedQuestsAtOnce": 1,			
+		"yaw":60,
+		"AvailableGoodsByTag":["ARMY"],		
+		"EnabledInteractions":2,		
+		"CurrencyID":1,
+		"StockID":13,
+		"attachments":["Mp133Shotgun","PoliceCap","PoliceJacket","PolicePants","PoliceVest","OMNOGloves_Brown","WorkingBoots_Brown"]
+		},	
+		{
+		"className":"alp_SurvivorM_Quinn",
+		"position":[3.32,0,-2.13],	
+		"yaw":-90,
+		"attachments":["Crowbar","PrisonerCap","PrisonUniformPants","PrisonUniformJacket","Sneakers_Gray","WorkingGloves_Brown"]
+		}		
+	]
+}

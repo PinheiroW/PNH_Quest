@@ -1,0 +1,30 @@
+{
+    "ZombiesResistToxicity": 1,
+    "RadiationAffectsNVG": 1,
+    "RadiationResistanceInBuilding": 10.0,
+    "AntiRadBlockDurationEffect": 180,
+    "EffectAntiRadBlockPills": 100,
+    "AutoRadiationReduce": 0.10000000149011612,
+    "GeigerSoundEffect_Radiation_Low": 5,
+    "GeigerSoundEffect_Radiation_Medium": 50,
+    "GeigerSoundEffect_Radiation_High": 100,
+    "EfficiencyNBCbyState": [
+        1.0,
+        0.949999988079071,
+        0.75,
+        0.5,
+        0.0
+    ],
+    "WaterDrainInRadiationPerSec": 5,
+    "RadiationCapForCalc": 200,
+    "ArmorRatioNBCforWaterDrain": 0.800000011920929,
+    "HeadgearsDetermineBodyProtection": 0,
+    "NotRequiredFilterForRadiation": 0,
+    "RadiationLimitToContamineItems": 50,
+    "EnableFoodDecontamination": 0,
+    "RadiationLimitDegradingAttachments": 100,
+    "DamageToAttachmentsCoef": 0.009999999776482582,
+    "DamageToAttachmentsExponent": 0.30000001192092898,
+    "FilterDamageRatio": 0.09000000357627869,
+    "ImprovisedFilterDamageRatio": 0.25
+}

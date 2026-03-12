@@ -1,0 +1,13 @@
+{
+    "IDE": 1873151083,
+    "Location": "Solnichniy",
+    "Position": [
+        13398.7451171875,
+        5.378826141357422,
+        6605.78759765625
+    ],
+    "Ammount": 2000.0,
+    "AmmountMax": 10000.0,
+    "RefreshPerRestart": 4000.0,
+    "ChanceRefresh": 0.10000000149011612
+}

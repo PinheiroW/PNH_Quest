@@ -18,6 +18,9 @@ class alpMission extends alpMissionBase
 		alp_WantedItem = wantedItem;
 		alp_NPC_id = npc_id;
 		alp_QuestID = quest_id;
+        
+		// --- LOG PNH ADICIONADO ---
+		Print("[PNH_QUEST_DEBUG] -> Missao Atribuida! NPC ID: " + npc_id.ToString() + " | Quest ID: " + quest_id.ToString() + " | Item Pedido: " + wantedItem);
 	}
 	
 	int GetRegisteredNPC()
@@ -1934,33 +1937,30 @@ Print("ALPMS: load mission from hive: " + alp_Name + " was successfull");
 	
 			
 			if ( toxicZone )
-            {
-                toxicZone.SetupZoneData(  GetSetupForToxicZone(area)  );
-                
-                if ( area.Type == "ContaminatedArea_Dynamic" )
-                {   
-                    // --- CORREÇÃO DO CONFLITO COM A ECONOMIA CENTRAL ---
-                    // Ao dar um Lifetime muito alto, garantimos que o DayZ base ignora a limpeza deste objeto
-                    // evitando o erro "NULL pointer" quando o mod tenta apagá-lo no final da missão.
-                    toxicZone.SetLifetimeMax( 36000 );
-                    toxicZone.SetLifetime( 36000 );
-                                                            
-                } else {
-                    toxicZone.SetLifetimeMax( ECE_NOLIFETIME );
-                    toxicZone.SetLifetime( ECE_NOLIFETIME );                                
-                }
-                
-                alpMissionElement e = new alpMissionElement(toxicZone); 
-                alp_ToxicZones.Insert( e );                 
-                
-                if ( isDynamic ) {
-                    m_Hive.AddAreaDynamic(area.Type, toxicZone.GetID(),index, toxicZone.GetPosition(),toxicZone.GetYawPitchRoll(),0);   
-                } else {
-                    m_Hive.AddArea(area.Type, toxicZone.GetID(),index, toxicZone.GetPosition(),toxicZone.GetYawPitchRoll(),0);  
-                }
-                
-                Print("ALPMS: mission " + GetName() + " - " + position + " - toxic zone spawned successfully"); //log   
-            }
+			{
+				toxicZone.SetupZoneData(  GetSetupForToxicZone(area)  );
+				
+				if ( area.Type == "ContaminatedArea_Dynamic" )
+				{	
+					toxicZone.SetLifetimeMax( GetTemplate().lifeTime );
+					toxicZone.SetLifetime( GetTemplate().lifeTime );
+															
+				} else {
+					toxicZone.SetLifetimeMax( ECE_NOLIFETIME );
+					toxicZone.SetLifetime( ECE_NOLIFETIME );								
+				}
+				
+				alpMissionElement e = new alpMissionElement(toxicZone);	
+				alp_ToxicZones.Insert( e );					
+				
+				if ( isDynamic ) {
+					m_Hive.AddAreaDynamic(area.Type, toxicZone.GetID(),index, toxicZone.GetPosition(),toxicZone.GetYawPitchRoll(),0);	
+				} else {
+					m_Hive.AddArea(area.Type, toxicZone.GetID(),index, toxicZone.GetPosition(),toxicZone.GetYawPitchRoll(),0);	
+				}
+				
+				Print("ALPMS: mission " + GetName() + " - " + position + " - toxic zone spawned successfully");	//log	
+			}
 			else
 			{
 				Print("ERROR IN SPAWNING TOXIC ZONE");
@@ -2422,18 +2422,19 @@ Print("ALPMS: load mission from hive: " + alp_Name + " was successfull");
 	}
 	
 	private void DeleteToxicZones()
-    {
-        if ( alp_ToxicZones )
-        {
-            foreach(alpMissionElement e : alp_ToxicZones){
-                if ( e.Get() ){
-                    // Voltamos a usar o apagamento forçado (vai funcionar graças ao Passo 2)
-                    GetGame().ObjectDelete( e.Get() );  
-                }               
-            }       
-            alp_ToxicZones.Clear();         
-        }
-    }
+	{
+		if ( alp_ToxicZones )
+		{
+			foreach(alpMissionElement e : alp_ToxicZones){
+				if ( e.Get() ){
+					GetGame().ObjectDelete( e.Get() );	
+				}				
+			}		
+			alp_ToxicZones.Clear();			
+		}
+		
+		
+	}
 	
 	
 	private void DeleteStructures()
@@ -2705,29 +2706,22 @@ Print("ALPMS: load mission from hive: " + alp_Name + " was successfull");
 				break;
 			}
 			case "weapons":
-            {
-                classNames = loots.items.Get(loots.items.GetRandomIndex());
-                
-                // --- CORREÇÃO AI BANDITS ---
-                // 1. Tenta forçar a arma a nascer já equipada (nas mãos ou nas costas da IA)
-                wep = Weapon_Base.Cast(ent.GetInventory().CreateAttachment(classNames.Get(0))); 
-                
-                // 2. Se a entidade não tiver o slot (ou estiver cheio), cai no padrão e cria na mochila
-                if ( !wep ) 
-                {
-                    wep = Weapon_Base.Cast(ent.GetInventory().CreateInInventory(classNames.Get(0)));    
-                }
-                
-                // 3. Mantém a regra original intocável para NPCs/Jogadores Humanos
-                if ( wep && ent.IsPlayer() )
-                {
-                    PlayerBase player = PlayerBase.Cast( ent ) ;
-                    
-                    if ( player && !player.GetItemInHands() )
-                    {
-                        player.ServerTakeEntityToHands( wep );  
-                    }
-                }
+			{
+				classNames = loots.items.Get(loots.items.GetRandomIndex());
+				
+				
+				
+				wep = Weapon_Base.Cast(ent.GetInventory().CreateInInventory(classNames.Get(0)));	
+				
+				if ( wep && ent.IsPlayer() )
+				{
+					PlayerBase player = PlayerBase.Cast( ent ) ;
+					
+					if ( player && !player.GetItemInHands() )
+					{
+						player.ServerTakeEntityToHands( wep );	
+					}
+				}
 				
 				
 				if (wep)

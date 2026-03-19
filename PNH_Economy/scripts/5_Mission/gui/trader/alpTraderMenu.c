@@ -7,77 +7,70 @@ enum alpSORTEDBY
 	COUNT
 }
 
-
 class alpTraderMenu extends UIScriptedMenu
 {
-
-	PlayerBase									alp_Player;
-	
+	PlayerBase 									alp_Player;
 	
 	//info panel
-	Widget									 	alp_RootWindowLoading;
-	RichTextWidget								alp_InfoTitle;	
+	Widget 										alp_RootWindowLoading;
+	RichTextWidget 								alp_InfoTitle;	
 	
 	//TRADER WINDOW
 	Widget 										alp_RootWindowTrader;
 	PlayerPreviewWidget 						alp_PlayerPreviewPanel;
 	
-	//filtr	
-	TextWidget									alp_FiltrTitle;
-	EditBoxWidget								alp_FindItem;	
-	TextListboxWidget							alp_FiltrList;		
+	//filtr 
+	TextWidget 									alp_FiltrTitle;
+	EditBoxWidget 								alp_FindItem;	
+	TextListboxWidget 							alp_FiltrList;		
 
-	//bank balances	
-	TextWidget									alp_BankAccount;	
-	TextWidget									alp_BankAccountTrader;	
+	//bank balances 
+	TextWidget 									alp_BankAccount;	
+	TextWidget 									alp_BankAccountTrader;	
 	
 	//cart
 	TextWidget 									alp_CartCash;
 	TextWidget 									alp_CartTotal;
 	TextWidget 									alp_CartCount;
 	
-	ButtonWidget								alp_CartBtn;
-	ImageWidget									alp_CartIcon;
+	ButtonWidget 								alp_CartBtn;
+	ImageWidget 								alp_CartIcon;
 	
-	ButtonWidget								alp_CartEmpty;
-	ButtonWidget								alp_CartConfirm;
+	ButtonWidget 								alp_CartEmpty;
+	ButtonWidget 								alp_CartConfirm;
 
 	//menu
-	alpMenuCategory								alp_MainMenu;
-	alpMenuCategory								alp_Menu1;
-	alpMenuCategory								alp_Menu2;
-	alpMenuCategory								alp_Menu3;	
-	int											alp_LastSelected1;
-	int											alp_LastSelected2;
-	int											alp_LastSelected3;		
+	alpMenuCategory 							alp_MainMenu;
+	alpMenuCategory 							alp_Menu1;
+	alpMenuCategory 							alp_Menu2;
+	alpMenuCategory 							alp_Menu3;	
+	int 										alp_LastSelected1;
+	int 										alp_LastSelected2;
+	int 										alp_LastSelected3;		
 	
-	ref alpTraderButtonContainer				alp_Menu1Buttons;
-	ref alpTraderButtonContainer				alp_Menu2Buttons;	
+	ref alpTraderButtonContainer 				alp_Menu1Buttons;
+	ref alpTraderButtonContainer 				alp_Menu2Buttons;	
 	
-	
-	ref array<ref alpProductCard>				alp_SelectedItems;	
+	ref array<ref alpProductCard> 				alp_SelectedItems;	
 
-	ref array<ref alpProductPresentation>>		alp_PresentedItems;	
+	// [CORREÇÃO] Erro de sintaxe (>> corrigido para >)
+	ref array<ref alpProductPresentation> 		alp_PresentedItems; 
 	
 	//ITEMS 
-	WrapSpacerWidget							alp_PanelPresentation;
+	WrapSpacerWidget 							alp_PanelPresentation;
 	
-	
-	int 										alp_LastSortID;	
-	
-	autoptr map<int,string>						alp_CurrencyMapped;
+	int 										alp_LastSortID; 
+	autoptr map<int,string> 					alp_CurrencyMapped;
+
+	// [OTIMIZAÇÃO] Variáveis de Cache para não atualizar a UI em todos os frames
+	EntityAI 									m_LastItemInHands;
+	float 										m_LastPlayerBalance = -1;
+	float 										m_LastTraderBalance = -1;
 	
 	override Widget Init()
 	{
-		
 		alp_Player = PlayerBase.Cast( GetGame().GetPlayer() );
-		
-		
-	
-		//GetGame().GetMission().PlayerControlDisable( INPUT_EXCLUDE_ALL );
-		
 		layoutRoot = GetGame().GetWorkspace().CreateWidgets("ND_MISSIONS/gui/layouts/GUI_trader.layout");
-		
 		
 		//LOADING PANEL
 		alp_RootWindowLoading = Widget.Cast( 	layoutRoot.FindAnyWidget("rootWindowLoading") );
@@ -89,18 +82,15 @@ class alpTraderMenu extends UIScriptedMenu
 		//player		
 		alp_PlayerPreviewPanel = PlayerPreviewWidget.Cast( 	layoutRoot.FindAnyWidget("PlayerPreview") );				
 		alp_PlayerPreviewPanel.SetPlayer( alp_Player);		
-
 		
 		//TRADER WIDGET
-		//filtr
 		alp_FiltrList = TextListboxWidget.Cast( 	layoutRoot.FindAnyWidget("FiltrList") );
 		alp_FiltrTitle = TextWidget.Cast( 	layoutRoot.FindAnyWidget("FilterTitle") );
-		alp_FindItem = EditBoxWidget.Cast( 	layoutRoot.FindAnyWidget("FindItemText") );				
+		alp_FindItem = EditBoxWidget.Cast( 	layoutRoot.FindAnyWidget("FindItemText") );			
 		
 		//bank alp_BankAccount
 		alp_BankAccount = TextWidget.Cast( 	layoutRoot.FindAnyWidget("BankBalanceText") );		
 		alp_BankAccountTrader =  TextWidget.Cast( 	layoutRoot.FindAnyWidget("TraderBankBalanceText") );	
-		
 		
 		//Cart		
 		alp_CartCash = TextWidget.Cast( 	layoutRoot.FindAnyWidget("CartCashValue") );
@@ -115,7 +105,6 @@ class alpTraderMenu extends UIScriptedMenu
 		
 		//ITEMS PRESENTATION
 		alp_PanelPresentation =  WrapSpacerWidget.Cast( layoutRoot.FindAnyWidget("BodyPanel"));
-		//alp_PanelPresentationTemp = Widget.Cast( alp_RootWindow.FindAnyWidget("rootContainer") );
 								
 		//ICONS UPDATE
 		ImageWidget.Cast( layoutRoot.FindAnyWidget("BankBalanceIcon") ).LoadImageFile(0,"ND_MISSIONS/gui/images/BankAccount.paa");
@@ -166,16 +155,7 @@ class alpTraderMenu extends UIScriptedMenu
 	{
 		alp_Player.GetSyncData().RegisterToEnhancedStatsSync(false);
 		alp_Player.GetRP().GetCart().ClearCart();
-		
-		//GetGame().GetMission().PlayerControlEnable( true );
-		
-		
 		GetND().GetMS().GetTrader().SetValidTraderData( false );
-		/*
-		if (alp_Cart)
-			alp_Cart.ClearCart();	
-		*/
-		
 	}
 	
 	override void Update(float timeslice)
@@ -184,19 +164,15 @@ class alpTraderMenu extends UIScriptedMenu
 		
 		if ( GetND().GetMS().GetTrader().IsTraderSet() && alp_RootWindowLoading.IsVisible() )
 		{
-			//TO DO: postpone + plus info about transaction
 			alp_RootWindowTrader.Show( true );
 			alp_RootWindowLoading.Show( false );
 			
 			alp_MainMenu = GetND().GetMS().GetTrader().GetTraderMenu();
-			
 			InitTrader();
-
 		}
 		if ( !GetND().GetMS().GetTrader().IsTraderSet() && alp_RootWindowTrader.IsVisible() )
 		{
 			alp_RootWindowTrader.Show( false );
-			
 			alp_RootWindowLoading.Show( true );
 			alp_InfoTitle.SetText( "#trader_info_loading" );
 		}
@@ -206,30 +182,29 @@ class alpTraderMenu extends UIScriptedMenu
 			UpdatePlayerPreview();	
 			CheckUpdate();
 		}
-
 	}
 	
+	// [OTIMIZAÇÃO] Redesenha o jogador 3D apenas quando ele troca de item na mão
 	void UpdatePlayerPreview()
 	{		
-		alp_PlayerPreviewPanel.UpdateItemInHands( alp_Player.GetHumanInventory().GetEntityInHands() );
+		EntityAI currentItem = alp_Player.GetHumanInventory().GetEntityInHands();
+		if (currentItem != m_LastItemInHands)
+		{
+			m_LastItemInHands = currentItem;
+			alp_PlayerPreviewPanel.UpdateItemInHands( currentItem );
+		}
 	}
 		
 	void InitTrader()
 	{
-		
-		//alp_MainMenu = GetND().GetMS().GetTrader().GetTraderMenu();
-		
-		//check result
 		if (GetND().GetMS().GetTrader().alp_TraderData.Count() == 0 )
 		{
 			Close();
 			return;
 		}
 			
-		
 		alp_MainMenu.SetSelected( alp_LastSelected1 );		
 		alp_LastSelected1 = alp_MainMenu.GetSelected();
-
 		
 		alp_Menu1 = alp_MainMenu.GetSelectedMenu();
 		alp_Menu1.SetSelected( alp_LastSelected2 );
@@ -237,10 +212,8 @@ class alpTraderMenu extends UIScriptedMenu
 		
 		alp_Menu2 = alp_Menu1.GetSelectedMenu();
 		alp_Menu2.SetSelected( alp_LastSelected3 );		
-		
 			
 		alp_Menu1Buttons = new alpTraderButtonContainer( WrapSpacerWidget.Cast( alp_RootWindowTrader.FindAnyWidget("groupPanel")), alp_MainMenu,alp_LastSelected1 );
-	
 		alp_Menu2Buttons = new alpTraderButtonContainer( WrapSpacerWidget.Cast( alp_RootWindowTrader.FindAnyWidget("categoryPanel")), alp_Menu1,alp_LastSelected2 );
 				
 		alp_FiltrList.ClearItems();
@@ -252,50 +225,40 @@ class alpTraderMenu extends UIScriptedMenu
 		
 		alp_Menu3 = alp_Menu2.GetSelectedMenu();		
 
-		//FilterTitle
 		string title = alp_MainMenu.GetSelectedMenu().alp_Name + " > " + alp_Menu1.GetSelectedMenu().alp_Name + " > " + alp_Menu2.GetSelectedMenu().alp_Name;
 		alp_FiltrTitle.SetText( title );
 		InitList (alp_Menu3.GetCategoryID() );
-			
-	
 	}	
 	
 	void InitList(int index = 0)
 	{
 		SetSelectedData(index);		
 		
-		alp_PresentedItems = new  array<ref alpProductPresentation>>;
-		foreach ( alpProductCard product :	alp_SelectedItems )
+		alp_PresentedItems = new array<ref alpProductPresentation>;
+		foreach ( alpProductCard product : 	alp_SelectedItems )
 		{
-			alpProductPresentation item = new alpProductPresentation( product , Widget.Cast( layoutRoot.FindAnyWidget("rootContainer") )  );
+			alpProductPresentation item = new alpProductPresentation( product , Widget.Cast( layoutRoot.FindAnyWidget("rootContainer") ) 	);
 			alp_PresentedItems.Insert( item );		
-						
 		}		
 		
 		int sort = alp_LastSortID;
-		
 		ShowItems( sort );
 		InitCart();	
 	}		
 	
 	void InitCart()
 	{
-		//trader cash
 		float traderCash,bank;
 		alp_Player.GetSyncData().GetElementEnhanced( alpRPelementsEnahnced.TRADER_BALANCE).GetValue( traderCash );
-		
-		//palyer account
 		alp_Player.GetSyncData().GetElementEnhanced( alpRPelementsEnahnced.PLAYER_BALANCE).GetValue( bank );
-		alp_BankAccount.SetText( alpUF.NumberToString(bank ,1) + " " + alp_CurrencyMapped.GetElement( alp_Player.GetRP().GetCart().GetCurrencyID() ));
 		
+		alp_BankAccount.SetText( alpUF.NumberToString(bank ,1) + " " + alp_CurrencyMapped.GetElement( alp_Player.GetRP().GetCart().GetCurrencyID() ));
 				
 		int cash, cost, balance;
-		//int currency = GetND().GetMS().GetTrader().GetCurrency();
-		cash = alp_Player.GetRP().GetCart().GetTotalBalance();//
-		
+		cash = alp_Player.GetRP().GetCart().GetTotalBalance();
 		cost = alp_Player.GetRP().GetCart().GetTotalAmount();
 		
-		if (GetND().GetMS().GetTrader().IsBuyMenu() )   
+		if (GetND().GetMS().GetTrader().IsBuyMenu() )	
 		{		
 			balance = cash - cost;
 			traderCash += cost;
@@ -305,52 +268,41 @@ class alpTraderMenu extends UIScriptedMenu
 			balance = cash + cost;
 			traderCash -= cost;
 		}
-		alp_BankAccountTrader.SetText( alpUF.NumberToString( traderCash,1) + " " + alp_CurrencyMapped.GetElement( alp_Player.GetRP().GetCart().GetCurrencyID() ) );		
+		alp_BankAccountTrader.SetText( alpUF.NumberToString( traderCash,1) + " " + alp_CurrencyMapped.GetElement( alp_Player.GetRP().GetCart().GetCurrencyID() ) );	
 				
 		int count = alp_Player.GetRP().GetCart().GetCountItemsInCart();
 		alp_CartCash.SetText( alpUF.NumberToString( balance,1) + " " + alp_CurrencyMapped.GetElement( alp_Player.GetRP().GetCart().GetCurrencyID() ));
 		alp_CartTotal.SetText( alpUF.NumberToString( cost,1) + " " + alp_CurrencyMapped.GetElement( alp_Player.GetRP().GetCart().GetCurrencyID() ) );
 		alp_CartCount.SetText( alpUF.NumberToString(count ,1) );
 
-
-		
 		if ( count > 0)
 		{
 			alp_CartBtn.Enable(true);
 			alp_CartIcon.SetColor( COLOR_AVAILABLE_POSITIVE );
-			
 			alp_CartEmpty.Enable(true);
 			alp_CartConfirm.Enable(true);
-			
 			alp_CartEmpty.GetChildren().SetColor( COLOR_AVAILABLE_NEGATIVE );		
-			alp_CartConfirm.GetChildren().SetColor( COLOR_AVAILABLE_POSITIVE );				
+			alp_CartConfirm.GetChildren().SetColor( COLOR_AVAILABLE_POSITIVE );			
 		}
 		else
 		{
 			alp_CartBtn.Enable(false);
 			alp_CartIcon.SetColor( COLOR_UNAVAILABLE );
-			
 			alp_CartEmpty.Enable(false);
 			alp_CartConfirm.Enable(false);	
 			alp_CartEmpty.GetChildren().SetColor( COLOR_UNAVAILABLE );		
 			alp_CartConfirm.GetChildren().SetColor( COLOR_UNAVAILABLE );	
 		}
-			
-	
 	}		
 	
 	void ShowItems(int sort, bool clear = true)
 	{
 		FilterIconDefaultColor();
-		
 		alp_LastSortID = sort;
 		
 		string name = "OrderBy_" + sort + "_Icon";
 		ImageWidget icon = ImageWidget.Cast( alp_RootWindowTrader.FindAnyWidget(name) );
-		if (icon)
-		{
-			icon.SetColor( COLOR_UNAVAILABLE );	
-		}
+		if (icon) icon.SetColor( COLOR_UNAVAILABLE ); 
 		
 		//clear presentanion panel
 		ScrollWidget.Cast( layoutRoot.FindAnyWidget("RightPanelScroll")).VScrollToPos01(0);
@@ -361,12 +313,10 @@ class alpTraderMenu extends UIScriptedMenu
 			panel = alp_PanelPresentation.GetChildren();
 		}	
 		
-	
-		
 		map<int, ref array<ref alpProductPresentation> > 		byValues = new map<int, ref array<ref alpProductPresentation> >;
 		map<string, ref array<ref alpProductPresentation> > 	byNames = new map<string , ref array<ref alpProductPresentation> >;
 		
-		foreach ( alpProductPresentation product :	alp_PresentedItems )
+		foreach ( alpProductPresentation product : 	alp_PresentedItems )
 		{
 			int productValue = product.GetProductCard().GetPrice();
 			string className = product.GetProductCard().GetDisplayName();
@@ -393,30 +343,12 @@ class alpTraderMenu extends UIScriptedMenu
 		
 		switch( sort )
 		{
-			case alpSORTEDBY.NAME:
-			{
-				sortByName.Sort();
-				break;
-			}
-			case alpSORTEDBY.NAME_REVERSE:
-			{
-				sortByName.Sort(true);
-				break;				
-	
-			}		
-			case alpSORTEDBY.VALUE:
-			{
-				sortByValue.Sort();
-				break;
-			}
-			case alpSORTEDBY.VALUE_REVERSE:
-			{
-				sortByValue.Sort(true);
-				break;
-			}								
+			case alpSORTEDBY.NAME: { sortByName.Sort(); break; }
+			case alpSORTEDBY.NAME_REVERSE: { sortByName.Sort(true); break; }		
+			case alpSORTEDBY.VALUE: { sortByValue.Sort(); break; }
+			case alpSORTEDBY.VALUE_REVERSE: { sortByValue.Sort(true); break; }								
 		}	
 		
-		//DISPLAY ITEM
 		int i,p;
 		array<ref alpProductPresentation> products;
 		alpProductPresentation presentation;
@@ -425,7 +357,6 @@ class alpTraderMenu extends UIScriptedMenu
 			for (i = 0; i < sortByName.Count(); i++ )
 			{
 				products = byNames.Get( sortByName.Get(i) );
-				
 				if ( products )
 				{
 					for ( p = 0; p < products.Count();p++)
@@ -442,7 +373,6 @@ class alpTraderMenu extends UIScriptedMenu
 			for (i = 0; i < sortByValue.Count(); i++ )
 			{
 				products = byValues.Get( sortByValue.Get(i) );
-				
 				if ( products )
 				{
 					for ( p = 0; p < products.Count();p++)
@@ -454,29 +384,22 @@ class alpTraderMenu extends UIScriptedMenu
 				}			
 			}		
 		}
-		
 	}	
 	
 	private void FilterIconDefaultColor()
 	{
-	
 		for(int i = 0; i < alpSORTEDBY.COUNT;i++)
 		{
 			string name = "OrderBy_" + i + "_Icon";
-			
 			ImageWidget icon = ImageWidget.Cast( alp_RootWindowTrader.FindAnyWidget(name) );
-			
-			if (icon)
-				icon.SetColor( ARGB(255,255,255,255));
+			if (icon) icon.SetColor( ARGB(255,255,255,255));
 		}
-	
 	}	
 	
 	private void SetSelectedData(int index)
 	{
 		alp_SelectedItems = new array<ref alpProductCard>;
-		
-		array<ref alpProductCard>	selected = GetND().GetMS().GetTrader().GetTraderData( index);
+		array<ref alpProductCard> 	selected = GetND().GetMS().GetTrader().GetTraderData( index);
 				
 		if (selected)
 		{			
@@ -486,7 +409,7 @@ class alpTraderMenu extends UIScriptedMenu
 				if (index == -1)
 				{//filter fce
 					string find = alp_FindItem.GetText();	
-					find.ToLower();					
+					find.ToLower();				
 					for (int i = 0;i< selected.Count();i++)
 					{				
 						alpProductCard product = selected.Get(i);
@@ -494,7 +417,7 @@ class alpTraderMenu extends UIScriptedMenu
 						name.ToLower();
 						if (name.IndexOf(find) >= 0)
 						{
-							alp_SelectedItems.Insert( product);	
+							alp_SelectedItems.Insert( product); 
 						}						
 						title = " > \"" + find + "\"";
 						alp_FiltrTitle.SetText( title );					
@@ -507,57 +430,44 @@ class alpTraderMenu extends UIScriptedMenu
 					alp_FiltrTitle.SetText( title );					
 				}			
 			}		
-			else
-			{
-				alp_SelectedItems = selected;
-			}
+			else alp_SelectedItems = selected;
 		}
-	
 	}		
 	
 	override bool OnClick(Widget w, int x, int y, int button)
 	{
-		
 		if (!super.OnClick(w, x, y, button))
 		{			
 			switch (w.GetUserID())
 			{
-				case 1:
-				{
-					Close();
-					return true;	
-				}
-				case 500://clear cart
+				case 1: { Close(); return true; }
+				case 500:
 				{
 					alp_Player.GetRP().GetCart().ClearCart();
 					InitTrader();
 					return true;				
 				}
-				case 501://confir
+				case 501:
 				{
-					//ConfirmCart();	
-					alp_Player.GetRP().GetCart().Confirm();				
+					alp_Player.GetRP().GetCart().Confirm();			
 					return true;				
 				}
-				case 502://find
+				case 502:
 				{				
 					string find = alp_FindItem.GetText();	
 					find.ToLower();	
 					find = find.Trim();
-					if ( find.Length() > 2 )
-					{
-						InitList(-1);			
-					}								
+					if ( find.Length() > 2 ) InitList(-1);							
 					return true;						
 				}
 			}		
+			
 			if ( alp_PresentedItems )
 			{
 				foreach( alpProductPresentation presentation : alp_PresentedItems)
 				{
 					if (presentation.OnClick(w,x,y,button) )
 					{
-						//TO DO: referesh cart and balance
 						RefreshTrader();
 						return true;
 					}
@@ -576,10 +486,8 @@ class alpTraderMenu extends UIScriptedMenu
 				return true;
 			}								
 			return false;		
-		
 		}
 		else return true;
-		
 	}	
 	
 	bool SortByIconClick(Widget w, int x, int y, int button)
@@ -590,12 +498,11 @@ class alpTraderMenu extends UIScriptedMenu
 			ButtonWidget btn = ButtonWidget.Cast( alp_RootWindowTrader.FindAnyWidget( name ) );
 			if (btn == w && alp_LastSortID != i )
 			{
-				ShowItems( i );		
+				ShowItems( i );	
 				return true;
 			}
 		}		
 		return false;
-		
 	}		
 
 	bool ShowCart(Widget w, int x, int y, int button)
@@ -606,25 +513,31 @@ class alpTraderMenu extends UIScriptedMenu
 			return true;
 		}		
 		return false;
-		
 	}	
 	
+	// [OTIMIZAÇÃO] Só atualiza a UI se o saldo da conta ou do trader mudou
 	void CheckUpdate()
 	{
-
 		//bank balance
 		float balance;		
 		if ( alp_Player.GetSyncData().GetElementEnhanced( alpRPelementsEnahnced.PLAYER_BALANCE).GetValue( balance ) )
 		{
-			RefreshTrader();
+			if (balance != m_LastPlayerBalance)
+			{
+				m_LastPlayerBalance = balance;
+				RefreshTrader();
+			}
 		}		
 		
 		//trader cash
 		float tradercash;
-		
 		if ( alp_Player.GetSyncData().GetElementEnhanced( alpRPelementsEnahnced.TRADER_BALANCE).GetValue( tradercash ) )
 		{
-			RefreshTrader();
+			if (tradercash != m_LastTraderBalance)
+			{
+				m_LastTraderBalance = tradercash;
+				RefreshTrader();
+			}
 		}
 		
 		if ( alp_MainMenu && alp_MainMenu.GetSelected() != alp_LastSelected1 )
@@ -638,15 +551,13 @@ class alpTraderMenu extends UIScriptedMenu
 			alp_LastSelected2 = alp_Menu1.GetSelected();
 			InitTrader();	
 			return;
-		} 		
-		
+		}		
 	}
 	
 	void RefreshTrader()
 	{
 		InitCart();
 		RefreshShownProducts();
-		//TO DO WITH SELECTED
 	}		
 
 	void RefreshShownProducts()
@@ -663,15 +574,14 @@ class alpTraderMenu extends UIScriptedMenu
 	override void OnShow()
 	{
 		super.OnShow();
-
 		SetFocus( layoutRoot );
 		GetGame().GetInput().ChangeGameFocus(1);	
 		PPEffects.SetBlurMenu( GetND().GetMS().GetOptoinsTrader().NPC_Menu_blur );
 		MissionGameplay.Cast( GetGame().GetMission() ).PlayerControlDisable(INPUT_EXCLUDE_ALL);
 		GetGame().GetMission().GetHud().ShowHudUI( false );
 		GetGame().GetMission().GetHud().ShowQuickbarUI( false );			
-
 	}	
+	
 	override void OnHide()
 	{
 		super.OnHide();
@@ -680,9 +590,6 @@ class alpTraderMenu extends UIScriptedMenu
 		GetGame().GetInput().ChangeGameFocus(-1);
 		MissionGameplay.Cast( GetGame().GetMission() ).PlayerControlEnable(true);	
 		GetGame().GetMission().GetHud().ShowHudUI( true );
-		GetGame().GetMission().GetHud().ShowQuickbarUI( true );			
+		GetGame().GetMission().GetHud().ShowQuickbarUI( true );		
 	}	
-
-
 }
-	

@@ -1,11 +1,15 @@
+
 modded class alpStoreValues
 {
-	int ClanID;
 	
-	// Identificadores para o sistema de spawn em camas na base
+	int ClanID;
+	//int BaseSpawn[3]; //id vlastnika, id house, id postele 
 	int Base_Owner;
 	string Base_House;
-	int Base_Bed; // CORREÇÃO: Adicionado ponto e vírgula faltante
+	int Base_Bed
 
-	bool IsNewborn = false; // CORREÇÃO: Alterado para bool para consistência com o valor 'false'
+	int IsNewborn = false;
+	
+
 }
+

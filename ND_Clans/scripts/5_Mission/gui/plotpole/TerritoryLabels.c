@@ -1,20 +1,28 @@
+
 class alpBuildingLabels
 {
+	//static vector CameraPosition;
+	
 	static int LAST_COLOR;
+	
 	static float TerritoryRadius;
+	
 	static int COLOR_SELECTED = COLOR_GREEN;
-	static int COLOR_DESELECTED = ARGB(255, 255, 255, 255);
+	
+	static int COLOR_DESELECTED = ARGB(255,255,255,255);
 	
 	static ref array<Widget> alp_Labels;
-	static ref map<int, Widget> alp_LabelsSelecet;
+	static ref map<int,Widget> alp_LabelsSelecet;
+	
 	static ref array<Widget> alp_Borders;
 	static ref array<vector> alp_BordersVectors;
+	
+	
 	static ref array<vector> alp_Vectors;
 
 	static void AddItem(int id, string label, vector pos, bool bought = false)
 	{
-		Widget root = GetLabelPanel();
-		if (!root) return;
+		Widget root = 	GetLabelPanel();
 		
 		SetPosition(root, pos);
 		SetLabel(root, id, label, bought);
@@ -23,35 +31,35 @@ class alpBuildingLabels
 		{
 			alp_Labels = new array<Widget>;
 			alp_Vectors = new array<vector>;
+			
 		}
 		
-		alp_Labels.Insert(root);
-		alp_Vectors.Insert(pos);
+		alp_Labels.Insert( root );
+		alp_Vectors.Insert( pos );
 	}
 	
 	static void ClearLabels()
 	{
-		if (alp_Labels)
+		int i;
+		if 	( alp_Labels )
 		{
-			foreach (Widget lbl : alp_Labels)
+			for( i = 0; i < alp_Labels.Count() ; i++)
 			{
-				if (lbl) lbl.Unlink();
+				alp_Labels.Get(i).Unlink();
 			}
+			
 			alp_Labels.Clear();			
 			alp_Vectors.Clear();	
-		}
-
-		if (alp_LabelsSelecet)
-		{
-			alp_LabelsSelecet.Clear();
+			alp_LabelsSelecet.Clear();			
 		}
 		
-		if (alp_Borders)
+		if 	( alp_Borders )
 		{
-			foreach (Widget bdr : alp_Borders)
+			for(i = 0; i < alp_Borders.Count() ; i++)
 			{
-				if (bdr) bdr.Unlink();
+				alp_Borders.Get(i).Unlink();
 			}
+			
 			alp_Borders.Clear();	
 			alp_BordersVectors.Clear();						
 		}		
@@ -60,12 +68,14 @@ class alpBuildingLabels
 	
 	static void ClearBorders()
 	{
-		if (alp_Borders)
+		int i;
+		if 	( alp_Borders )
 		{
-			foreach (Widget bdr : alp_Borders)
+			for(i = 0; i < alp_Borders.Count() ; i++)
 			{
-				if (bdr) bdr.Unlink();
+				alp_Borders.Get(i).Unlink();
 			}
+			
 			alp_Borders.Clear();						
 		}	
 		
@@ -73,130 +83,150 @@ class alpBuildingLabels
 		alp_BordersVectors = new array<vector>;
 	}
 	
+	
 	static Widget GetLabelPanel()
 	{
-		return GetGame().GetWorkspace().CreateWidgets("ND_Clans/gui/layouts/BuildingIcon.layout");
-	}
+		Widget root = GetGame().GetWorkspace().CreateWidgets("ND_Clans/gui/layouts/BuildingIcon.layout");
 
+		
+		return root;	
+	}
 	static Widget GetBorderSign()
 	{
-		return GetGame().GetWorkspace().CreateWidgets("ND_Clans/gui/layouts/TerritoryBorder.layout");
+		Widget root = GetGame().GetWorkspace().CreateWidgets("ND_Clans/gui/layouts/TerritoryBorder.layout");
+
+		
+		return root;	
 	}
 	
 	static void SetPosition(Widget w, vector pos)
 	{
-		if (!w) return;
+		vector screen_pos = GetGame().GetScreenPos( pos );
 
-		vector screen_pos = GetGame().GetScreenPos(pos);
-		
-		// CORREÇÃO: Verifica se o ponto está na frente da câmera (Z > 0)
-		if (screen_pos[2] > 0)
-		{
-			w.Show(true);
-			w.SetPos(screen_pos[0], screen_pos[1]);
-		}
-		else
-		{
-			w.Show(false);
-		}
+		float x,y;
+		x = screen_pos[0];
+		y = screen_pos[1];		
+		w.SetPos(x,y);
 	}
 	
 	static void SetLabel(Widget w, int id, string label, bool bought)
 	{
-		if (!w) return;
-
-		TextWidget text = TextWidget.Cast(w.FindAnyWidget("Label"));
-		if (text) text.SetText(label);
+		TextWidget text = TextWidget.Cast(  w.FindAnyWidget("Label") );
 		
-		Widget selectedWidget = w.FindAnyWidget("Selected");
-		if (selectedWidget)
+		text.SetText( label );
+		
+		if (bought)
+		{	
+			Widget.Cast( w.FindAnyWidget("Selected") ).SetColor( COLOR_AVAILABLE_POSITIVE );						
+		}	
+		else
 		{
-			if (bought)
-				selectedWidget.SetColor(COLOR_AVAILABLE_POSITIVE);						
-			else
-				selectedWidget.SetColor(COLOR_UNAVAILABLE);	
-
-			if (!alp_LabelsSelecet)
-				alp_LabelsSelecet = new map<int, Widget>;
-			
-			alp_LabelsSelecet.Set(id, selectedWidget);		
-		}
+			Widget.Cast( w.FindAnyWidget("Selected") ).SetColor( COLOR_UNAVAILABLE );	
+		}	
+		
+		if (!alp_LabelsSelecet)
+			alp_LabelsSelecet = new map<int,Widget>;
+		
+		alp_LabelsSelecet.Set( id, Widget.Cast( w.FindAnyWidget("Selected") ));		
 	}	
 	
-	static void SelectLabel(int id)
+	
+	static void SelectLabel(int id )
 	{
-		if (!alp_LabelsSelecet) return;
-
 		Widget label = alp_LabelsSelecet.Get(id);
+		
+		LAST_COLOR = label.GetColor();
+		
 		if (label)
 		{
-			LAST_COLOR = label.GetColor();
-			label.SetColor(COLOR_RED);		
+			label.SetColor( COLOR_RED );		
 		}
+	
 	}
-
-	static void UnSelectLabel(int id)
+	static void UnSelectLabel(int id )
 	{
-		if (!alp_LabelsSelecet) return;
-
 		Widget label = alp_LabelsSelecet.Get(id);
+		
 		if (label)
 		{
-			label.SetColor(LAST_COLOR);		
+			label.SetColor( LAST_COLOR );		
 		}
+	
 	}	
+	
 	
 	static void Update()
 	{
-		if (alp_Labels)
+		int i;
+		if 	( alp_Labels )
 		{
-			for (int i = 0; i < alp_Labels.Count(); i++)
+			for(i = 0; i < alp_Labels.Count() ; i++)
 			{
-				SetPosition(alp_Labels.Get(i), alp_Vectors.Get(i));
+				
+				SetPosition( alp_Labels.Get(i), alp_Vectors.Get(i));
 			}
-		}
 
-		if (alp_Borders)
+		}	
+		if 	( alp_Borders )
 		{
-			for (int j = 0; j < alp_Borders.Count(); j++)
+			for(i = 0; i < alp_Borders.Count() ; i++)
 			{
-				SetPosition(alp_Borders.Get(j), alp_BordersVectors.Get(j));
+				
+				SetPosition( alp_Borders.Get(i), alp_BordersVectors.Get(i));
 			}
-		}			
+
+		}		
+			
 	}
 	
 	static void SetBorders(float range)
 	{
+	
+		
+		
 		TerritoryRadius = range;
-		if (TerritoryRadius <= 0) return;
 		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());		
-		if (!player || !player.alp_PlotPoleManage) return;
-
-		vector ppPos = player.alp_PlotPoleManage.GetWorldPosition();
-		ClearBorders();
-		
-		// Otimização: Define densidade de pontos baseada no raio
-		int countPoints = Math.Max(12, TerritoryRadius * 2 * Math.PI / 5);
-		float angleStep = 360.0 / countPoints;
-
-		for (int i = 0; i < countPoints; i++)
-		{			
-			float currentAngle = i * angleStep;				
-			vector posDir = "0 0 0";				
-			posDir[0] = Math.NormalizeAngle(currentAngle);
+		if ( TerritoryRadius > 0 )
+		{
 			
-			vector dir = posDir.AnglesToVector();	
-			vector finalPos = ppPos;
-			finalPos[0] = finalPos[0] + (dir[0] * TerritoryRadius);
-			finalPos[2] = finalPos[2] + (dir[2] * TerritoryRadius);	
 			
-			Widget border = GetBorderSign();
-			if (border)
-			{
-				alp_BordersVectors.Insert(finalPos);
-				alp_Borders.Insert(border);
-			}
-		}		
+			PlayerBase player;
+			Class.CastTo(player,GetGame().GetPlayer());		
+			
+	
+	
+
+			vector ppPos =  player.alp_PlotPoleManage.GetWorldPosition();
+			ClearBorders();
+			
+			int countPoints = TerritoryRadius * 2 * Math.PI / 5;
+			
+			float angle 	= 360 / countPoints;
+			float angle2 	= 0;
+			for (int i = 0; i < countPoints;i++)
+			{			
+				angle2 = i*angle;				
+				vector pos	= vector.Zero;				
+				pos[0]= Math.NormalizeAngle(angle2);
+				pos = pos.AnglesToVector();	
+				pos[0] = pos[0]*TerritoryRadius;
+
+				pos[2] = pos[2]*TerritoryRadius;	
+				
+				
+				
+				vector finalPos = ppPos - pos;	
+				finalPos[1] = ppPos[1];
+				
+				Widget bodrder = GetBorderSign();
+				
+			
+				
+				//SetPosition(bodrder, finalPos);
+				alp_BordersVectors.Insert( finalPos );
+				alp_Borders.Insert( bodrder );
+			}		
+		}
 	}
 }
+

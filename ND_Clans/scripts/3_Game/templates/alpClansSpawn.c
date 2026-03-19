@@ -1,14 +1,9 @@
 class alpClansSpawn 
 {
-	bool EnableEnhancedSpawnSettings;
-	bool EnableSpawnInBase;
-	int SpawnInBaseCoolDown;
+	bool EnableEnhancedSpawnSettings					= false;
+	bool EnableSpawnInBase								= true;
+	int SpawnInBaseCoolDown								= 900;
+	//bool Installed_Spawn_Base							= false;
 
-	// Construtor: Garante a inicialização segura na memória antes da leitura do JSON
-	void alpClansSpawn()
-	{
-		EnableEnhancedSpawnSettings = false;
-		EnableSpawnInBase = true;
-		SpawnInBaseCoolDown = 900;
-	}
+	
 }

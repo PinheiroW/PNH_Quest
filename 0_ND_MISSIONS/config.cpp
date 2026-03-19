@@ -5,10 +5,7 @@ class CfgPatches
 		units[]={};
 		weapons[]={};
 		requiredVersion=0.1;
-		requiredAddons[]= {
-   		"DZ_Data",
-		"DZ_Scripts" 
-		};
+		requiredAddons[]={"DZ_Data"};
 	};
 };
 
@@ -18,14 +15,11 @@ class CfgMods
 	{
 		type="mod";
 		name="ND - Missions";
-	    dependencies[] = {"GameLib","Game", "World", "Mission"};
-	    class defs	    
+		dependencies[] = {"Game", "World", "Mission"};
+		class defs	    
 		{	
-			class gameLibScriptModule
-			{
-				value = "";
-				files[] = {"0_ND_MISSIONS/scripts/Common"};
-			};		
+			// Carregamos as constantes apenas aqui. 
+			// O World e o Mission herdam-nas automaticamente.
 			class gameScriptModule
             {
                 value = "";
@@ -34,12 +28,12 @@ class CfgMods
 			class worldScriptModule
             {
                 value = "";
-				files[] = {"0_ND_MISSIONS/scripts/Common"};
+				files[] = {"0_ND_MISSIONS/scripts/4_World"};
             };
 			class missionScriptModule
             {
                 value = "";
-				files[] = {"0_ND_MISSIONS/scripts/Common"};
+				files[] = {"0_ND_MISSIONS/scripts/5_Mission"};
             };
         };
     };

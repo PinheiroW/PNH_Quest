@@ -6,14 +6,12 @@ class CfgPatches
 		weapons[]={};
 		requiredVersion=0.1;
 		requiredAddons[]=
-        {
-            "DZ_Data",
-            "0_ND_MISSIONS",
-            "PNH_Missions", // Garante que lê as definições de missão primeiro
-            "PNH_Roleplay"  // Garante que lê as definições de radiação primeiro
-        };
-		author="Pinheiro";
-		authorID="";
+		{
+			"DZ_Data",
+			"DZ_Scripts"
+		};
+		author="AlPepino";
+		authorID="76561198077747785";
 		name="PNH_Core";
 		url="";
 	};
@@ -23,16 +21,23 @@ class CfgMods
 	class PNH_Core
 	{
 		type="mod";
-		name="PNH - Core Scripts";
+		name="ND - Missions";
 		dependencies[]=
 		{
 			"Game",
 			"World",
 			"Mission"
 		};
-		inputs="PNH_Core/scripts/inputs/nd_info_inputs.xml";
+		inputs="PNH_Core\scripts\inputs\nd_info_inputs.xml";
 		class defs
 		{
+			class imageSets
+			{
+				files[]=
+				{
+					"PNH_Core/gui/imagesets/nd_dayz_gui.imageset"
+				};
+			};
 			class gameScriptModule
 			{
 				value="";

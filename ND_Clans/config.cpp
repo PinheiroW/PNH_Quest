@@ -7,14 +7,17 @@ class CfgPatches
 		requiredVersion=0.1;
 		requiredAddons[]=
 		{
-			"ND_Role_Playing"
+			"DZ_Data",
+			"DZ_Scripts",
+			"PNH_Core" // [CORREÇÃO] Garante que as constantes do PNH_Core carreguem ANTES deste mod
 		};
-		author="AlPepino";
+		author="AlPepino / Pinheiro";
 		authorID="76561198077747785";
 		name="ND_Clans";
 		url="";
 	};
 };
+
 class CfgMods
 {
 	class ND_Clans

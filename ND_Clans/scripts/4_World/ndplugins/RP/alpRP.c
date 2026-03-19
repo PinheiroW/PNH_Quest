@@ -106,11 +106,8 @@ modded class alpRP
 		}
 	}	
 	
-	
 	bool HasPDA()
 	{
 		return true;
 	}
 }
-
-

@@ -8,10 +8,11 @@ class CfgPatches
 		requiredAddons[]=
 		{
 			"DZ_Data",
-			"DZ_Scripts"
+			"DZ_Scripts",
+			"VanillaPlusPlus"
 		};
-		author="AlPepino";
-		authorID="76561198077747785";
+		author="Pinheiro";
+		authorID="";
 		name="ND_MISSIONS";
 		url="";
 	};

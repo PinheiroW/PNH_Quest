@@ -6,11 +6,12 @@ class CfgPatches
 		weapons[]={};
 		requiredVersion=0.1;
 		requiredAddons[]=
-		{
-			"DZ_Data",
-			"DZ_Scripts",
-			"VanillaPlusPlus"
-		};
+        {
+            "DZ_Data",
+            "0_ND_MISSIONS",
+            "PNH_Missions", // Garante que lê as definições de missão primeiro
+            "PNH_Roleplay"  // Garante que lê as definições de radiação primeiro
+        };
 		author="Pinheiro";
 		authorID="";
 		name="PNH_Core";

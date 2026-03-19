@@ -1,3 +1,14 @@
+enum alpRADIO
+{
+    NONE = 0,
+    ALLOWED_BY_CONFIG_PERSONAL = 1,
+    ALLOWED_BY_CONFIG_FIELD = 2,
+    HAS_WALKIE_TALKIE = 4 ,
+    HAS_BASE_RADIO = 8,
+    HAS_GPS = 16,
+    HAS_COMPASS = 32,   
+}
+
 class alpQuestMarker
 {
 	float X;

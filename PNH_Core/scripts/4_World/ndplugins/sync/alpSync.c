@@ -1,4 +1,3 @@
-
 class alpSync 
 {
 	PlayerBase					alp_Player;
@@ -13,9 +12,11 @@ class alpSync
 	
 	//float sync
 	bool 						alp_IsRegisterToEnhancedStat;
-	//bool 						alp_IsRegisterToRadiationStat;
-	const int 					NUMBER_OF_ELEMENTS_ENHANCED 						= alpRPelementsEnahnced.COUNT;
-	ref alpStatsBaseEnhanced 	alp_ElementsEnhanced[NUMBER_OF_ELEMENTS_ENHANCED];		
+	const int 					NUMBER_OF_ELEMENTS_ENHANCED = alpRPelementsEnahnced.COUNT;
+	ref alpStatsBaseEnhanced 	alp_ElementsEnhanced[NUMBER_OF_ELEMENTS_ENHANCED];	
+
+	// [MODIFICAÇÃO 1] - Nossa cache de retenção de rede
+	ref array<float> 			alp_LastSentEnhanced;
 	 					
 	
 	void alpSync(PlayerBase player)
@@ -36,7 +37,7 @@ class alpSync
 	{
 		//RegisteStats		
 		RegisterElement( new alpStatsIsAllowDamage( alp_Player ) );
-		RegisterElement( new alpStatsIsInTradeZone( alp_Player ) );		
+		RegisterElement( new alpStatsIsInTradeZone( alp_Player ) );	
 		
 		RegisterElement( new alpStatsIsRained( alp_Player ) );		
 		
@@ -46,14 +47,30 @@ class alpSync
 		RegisterElementEnhanced( new alpStatsEnhancedBlood(alp_Player) );	
 		RegisterElementEnhanced( new alpStatsEnhancedWater(alp_Player) );	
 		RegisterElementEnhanced( new alpStatsEnhancedFood(alp_Player) );	
-		RegisterElementEnhanced( new alpStatsEnhancedStomach(alp_Player) );	
+		RegisterElementEnhanced( new alpStatsEnhancedStomach(alp_Player) ); 
 		
-		RegisterElementEnhanced( new alpStatsEnhancedStomach(alp_Player) );		
+		// (Linha duplicada do Stomach removida daqui)
 		
 		RegisterElementEnhanced( new alpStatsEnhancedRadiationDoses( alp_Player ) );	
 		
-		RegisterElementEnhanced( new alpStatsEnhancedTraderBalance( alp_Player ) );	
+		RegisterElementEnhanced( new alpStatsEnhancedTraderBalance( alp_Player ) ); 
 		RegisterElementEnhanced( new alpStatsEnhancedPlayerBalance( alp_Player ) );
+
+		// =========================================================
+		// [MODIFICAÇÃO 2] - Inicializar a Cache do Delta Check
+		// =========================================================
+		alp_LastSentStats = new array<int>;
+		alp_LastSentEnhanced = new array<float>;
+		
+		for (int j = 0; j < NUMBER_OF_ELEMENTS; j++) 
+		{
+			alp_LastSentStats.Insert(-9999);
+		}
+		
+		for (int k = 0; k < NUMBER_OF_ELEMENTS_ENHANCED; k++) 
+		{
+			alp_LastSentEnhanced.Insert(-9999.0);
+		}
 	}
 	
 	float alp_TICK;
@@ -238,33 +255,35 @@ class alpSync
 	
 	void SendRPC_RP_ENHANCED()
 	{
-		
-		
 		if (!IsRegisteredToEnhanced() && !GetPlayer().GetRP().HasDosimeter() )
 			return;
-		
 
-
-		for(int i = 0; i < NUMBER_OF_ELEMENTS_ENHANCED;i++)
+		for(int i = 0; i < NUMBER_OF_ELEMENTS_ENHANCED; i++)
 		{
 			if( GetElementEnhanced(i) )
 			{
 				if ( ( GetElementEnhanced(i).IsTraderStats() & IsRegisteredToEnhanced() ) || ( GetElementEnhanced(i).IsPlayerStats() & IsRegisteredToEnhanced() ) || ( GetElementEnhanced(i).IsRadiationStats() ) )
 				{
-
 					float value;											
 					if ( GetElementEnhanced(i).GetValue( value ) )
-					{//was changed
+					{
+						// [MODIFICAÇÃO 3] O DELTA CHECK ABSOLUTO!
+						// Verifica se a diferença entre o valor atual e o último enviado é maior que 0.1
+						if ( Math.AbsFloat(value - alp_LastSentEnhanced.Get(i)) > 0.1 )
+						{
+							// Atualiza a memória (Cache)
+							alp_LastSentEnhanced.Set(i, value);
 
-						ScriptRPC rpc = new ScriptRPC();
-						rpc.Write(i);
-						rpc.Write(value);
-						rpc.Send(alp_Player, ALP_RPC_PLAYER_SYNC_VALUE, false, alp_Player.GetIdentity());
+							// Liberta o envio do RPC apenas agora!
+							ScriptRPC rpc = new ScriptRPC();
+							rpc.Write(i);
+							rpc.Write(value);
+							rpc.Send(alp_Player, ALP_RPC_PLAYER_SYNC_VALUE, false, alp_Player.GetIdentity());
+						}
 					}
 				}
 			}
 		}			
-
 	}	
 			
 	void ForceSync()
@@ -289,5 +308,3 @@ class alpSync
 	}	
 		
 }
-
-

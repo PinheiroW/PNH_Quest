@@ -1,17 +1,17 @@
-
-
 // Script File
 modded class ModifiersManager
 {
-	override void Init(){
+	override void Init()
+	{
 		super.Init();
+		
+		// Gestores de Radiação Externa e Bloqueio
 		AddModifier(new alpRadiationMdfr);
 		AddModifier(new alpRadiationBlockMdfr);	
 		
-		AddModifier(new alpRadiationSick1Mdfr);
-		AddModifier(new alpRadiationSick2Mdfr);
-		AddModifier(new alpRadiationSick3Mdfr);
-		AddModifier(new alpRadiationSick4Mdfr);
-		AddModifier(new alpRadiationSick5Mdfr);
+		// [OTIMIZAÇÃO] Modificador Unificado de Doença por Radiação
+		// Este único ficheiro agora gere todos os estágios (1 a 5)
+		// e corre apenas a cada 4 segundos para poupar CPU.
+		AddModifier(new alpRadiationSickMdfr);
 	}
 }
